@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#05060f">
 <meta property="og:title" content="Tecno Center · Dosquebradas">
 <meta property="og:description" content="Celulares y tecnología a crédito, servicio técnico y giros a Venezuela. Calle 64 # 16-42, Capilla.">
-<meta property="og:image" content="img/p/iphone17.jpg">
+<meta property="og:image" content="img/credito.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -408,7 +408,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       </div>
       <div class="stats">
         <div><b>8</b><span>financieras aliadas</span></div>
-        <div><b>+40</b><span>productos en catálogo</span></div>
+        <div><b>+10</b><span>marcas de celulares</span></div>
         <div><b>⚡</b><span>respuesta inmediata</span></div>
       </div>
     </div>
@@ -831,7 +831,7 @@ async function ubicacion(){
 async function asesor(){await say('¡Claro! Te comunico con un asesor por WhatsApp 👇');chips([toWA(null,'Hola Tecno Center, quiero hablar con un asesor'),back])}
 
 async function catalogo(){
-  await say('📱 Tenemos iPhone 17 Pro Max, Galaxy S26 Ultra, S25 FE, A07, Redmi Note 15 Pro+, Redmi 15C, iPhone 16, Galaxy A57 y A37 5G, Infinix Note 50 Pro y Hot 70, Redmi Note 15 Pro, A7 Pro y A5, proyectores, Galaxy Watch Ultra, Echo con Alexa, parlantes Bose, power banks, cabina karaoke Gedi, drones, cargadores y cables Fly y Plus ¡y mucho más!');
+  await say('📱 Tenemos celulares, audio, cargadores, accesorios, gadgets y mucho más. ¡Pregúntanos por el que buscas!');
   await say('Te llevo al catálogo: agrega lo que quieras y envíanos tu pedido por WhatsApp 🛒');
   chips([['🛒 Abrir catálogo',()=>{bot.classList.remove('open');document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})},true],back]);
 }
@@ -867,102 +867,16 @@ setTimeout(()=>hint.classList.remove('show'),12000);
 
 /* ===== Catálogo ===== */
 const PRODUCTS=[
- {id:'ipmaxreal',n:'iPhone Pro Max · foto real',c:'Celulares',img:'img/p/iphone-promax-real.jpg',d:'Foto real tomada en el local. Pregunta por modelo, memoria y precio.',s:['Disponible en el local','Pregunta por estado y garantía'],t:['A crédito']},
- {id:'zte',n:'Celular ZTE',c:'Celulares',img:'img/p/zte.jpg',d:'Económico, con doble cámara y pantalla amplia.',s:['Color verde agua','Pregunta por memoria y precio'],t:['A crédito','Económico']},
- {id:'hw18',n:'Smartwatch Howear HW18 Pro+',c:'Smart y hogar',img:'img/p/howear-hw18.jpg',d:'Conectado contigo, siempre.',s:['Llamadas Bluetooth','Monitor de salud y modos deportivos','Hasta 7 días de batería · Android / iOS'],t:['Nuevo']},
- {id:'r36s',n:'Consola portátil R36S 64GB',c:'Gadgets',img:'img/p/consola-r36s.jpg',d:'Revive los mejores juegos clásicos donde quieras.',s:['64GB · miles de juegos','Pantalla HD a color 640×480','Ranura TF · batería de larga duración'],t:['Top']},
- {id:'beckradio',n:'Radio vintage Beck Play BP-RV109BT',c:'Audio',img:'img/p/radio-beckplay.jpg',d:'Clásico por fuera, moderno por dentro.',s:['Bluetooth · USB · TF','Radio FM / AM / SW','Batería recargable 18650'],t:[]},
- {id:'yuegan',n:'Radio retro Yuegan YG-1085 mini',c:'Audio',img:'img/p/radio-yuegan.jpg',d:'Estilo vintage con luz LED ambiental.',s:['Bluetooth 5.0 · USB · Micro SD','Radio FM / AM / SW','Hasta 6 h de batería'],t:['Nuevo']},
- {id:'sokany',n:'Parrilla Raclette Sokany SK-08139',c:'Hogar',img:'img/p/sokany-grill.jpg',d:'El centro de tus reuniones: asa y gratina en la mesa.',s:['1600W','8 sartenes individuales','Antiadherente · calor uniforme'],t:['Nuevo']},
- {id:'vgrbarber',n:'Combo barbero VGR Super Trim V-699 & 971',c:'Hogar',img:'img/p/vgr-barber.jpg',d:'Potencia, precisión y estilo en cada corte.',s:['Cuchillas de titanio','Pantalla LED · carga USB','Incluye peines guía'],t:['Top']},
- {id:'magic7',n:'Honor Magic7 Lite 5G',c:'Celulares',img:'img/p/honor-magic7lite.jpg',d:'Resistencia que te acompaña, potencia que te impulsa.',s:['Pantalla AMOLED curva 6.78" FHD+','Cámara 108MP · batería 6600mAh','Carga rápida 66W · Snapdragon 6 Gen 1','Resistencia 360° certificada'],t:['A crédito','Nuevo']},
- {id:'x6c',n:'Honor X6c',c:'Celulares',img:'img/p/honor-x6c.jpg',d:'Batería de larga duración y gran almacenamiento.',s:['Pantalla 6.61" HD+','Cámara 50MP · batería 5200mAh','6GB RAM + 128GB'],t:['A crédito']},
- {id:'play10',n:'Honor Play10',c:'Celulares',img:'img/p/honor-play10.jpg',d:'Más memoria, más experiencia.',s:['64GB y 128GB','Batería de larga duración'],t:['A crédito','Económico']},
- {id:'airtag',n:'AirTag',c:'Smart y hogar',img:'img/p/airtag.jpg',d:'Encuentra tus llaves, mochila o billetera con tu iPhone.',s:['Funciona con la app Buscar','IP67 · batería reemplazable'],t:['Nuevo']},
- {id:'progamer',n:'Proyector Gamer Android 12 + consola retro',c:'Gadgets',img:'img/p/proyector-gamer.jpg',d:'Proyector y consola retro 2 en 1, con 2 controles inalámbricos.',s:['Más de 20.000 juegos retro · 250GB','Android 12 · WiFi 2.4/5G · Bluetooth','Pantalla hasta 130"'],t:['A crédito','Top']},
- {id:'promulti',n:'Proyector multimedia Ultra HD',c:'Gadgets',img:'img/p/proyector-multimedia.jpg',d:'Cine en casa, juegos y presentaciones.',s:['Altavoz integrado','HDMI, USB, AV y más'],t:['A crédito']},
- {id:'vgr390',n:'Afeitadora VGR V-390',c:'Hogar',img:'img/p/vgr-v390.jpg',d:'Afeitadora profesional, portátil y liviana.',s:['Batería de larga duración','Diseño ergonómico'],t:['Nuevo']},
- {id:'ibuy',n:'Estuche infantil iBuy para tablet',c:'Accesorios',img:'img/p/estuche-ibuy.jpg',d:'Antigolpes con soporte y agarre, ideal para niños.',s:['Azul, verde y rosado','Samsung A9/A11 (y Plus), Redmi Pad 2, Redmi Pad SE 11'],t:['Top']},
- {id:'smartcase',n:'Smart Case para tablet',c:'Accesorios',img:'img/p/smart-case.jpg',d:'Protección total con cierre magnético y soporte multiángulo.',s:['iPad, Samsung A9/A11/S10 FE, Redmi Pad'],t:[]},
- {id:'vidtab',n:'Vidrios protectores para tablet',c:'Accesorios',img:'img/p/vidrios-tablet.jpg',d:'Máxima protección, claridad y sensibilidad.',s:['Samsung A9/A11/S10 FE, Redmi Pad 2/SE, iPad'],t:[]},
- {id:'p40',n:'Cargador para carro Fly P-40',c:'Cargadores y cables',img:'img/p/fly-p40.jpg',d:'Doble puerto USB-A + USB-C.',s:['12W · QC3.0 + PD','Protección inteligente'],t:['Económico']},
- {id:'cp120',n:'Cargador Fly CP-120 15W',c:'Cargadores y cables',img:'img/p/fly-cp120.jpg',d:'Travel charging con cable USB-C.',s:['3.1A · 15W','Cable incluido'],t:['Económico']},
- {id:'cp110',n:'Cargadores Fly 3.1A tipo C',c:'Cargadores y cables',img:'img/p/fly-cp110.jpg',d:'Rápidos, seguros y confiables.',s:['3.1A','Cable tipo C incluido'],t:['Económico']},
- {id:'redmipad2',n:'Redmi Pad 2 4G',c:'Tablets',img:'img/p/redmi-pad2.jpg',d:'Tablet con conexión 4G y sonido Dolby Atmos.',s:['Conectividad 4G','Sonido Dolby Atmos','Xiaomi HyperOS'],t:['A crédito','Nuevo']},
- {id:'echoshow8',n:'Echo Show 8 con Alexa',c:'Smart y hogar',img:'img/p/echo-show8.jpg',d:'Pantalla inteligente: música, videollamadas y control del hogar con tu voz.',s:['Pantalla HD de 8"','Cámara 13MP para videollamadas','Altavoces estéreo con Dolby'],t:['A crédito','Nuevo']},
- {id:'jblclip5',n:'Parlante JBL Clip 5',c:'Audio',img:'img/p/jbl-clip5.jpg',d:'Portátil, con mosquetón y resistente al agua.',s:['Bluetooth 5.3','IP67 resistente al agua y polvo','Hasta 12 h de batería'],t:['Top'],hero:1},
- {id:'psclassic',n:'PlayStation Classic',c:'Gadgets',img:'img/p/ps-classic.jpg',d:'Los juegos que marcaron tu historia, ¡ahora contigo!',s:['20 juegos clásicos preinstalados','Salida HDMI','Diseño compacto'],t:['Top']},
- {id:'dualsense',n:'Control DualSense inalámbrico',c:'Gadgets',img:'img/p/dualsense.jpg',d:'Respuesta háptica y gatillos adaptativos. Compatible con PC.',s:['Inalámbrico','Compatible con PC, Mac y PS5','Incluye cable USB-C'],t:['Nuevo']},
- {id:'fs6',n:'Audífonos Fly S6',c:'Audio',img:'img/p/fly-s6.jpg',d:'Siente cada detalle, vive tu música.',s:['Micrófono incorporado','Cable antinudos · 3.5mm'],t:['Económico']},
- {id:'fh130',n:'Audífonos Fly H-130 in-ear',c:'Audio',img:'img/p/fly-h130.jpg',d:'Sound que te mueve. Disponibles en 4 colores.',s:['Micrófono incorporado','Azul, rojo, dorado y blanco','3.5mm'],t:['Económico']},
- {id:'realsound',n:'Audífonos Plus Real Sound',c:'Audio',img:'img/p/plus-realsound.jpg',d:'Sonido que te conecta, con micrófono para tu día a día.',s:['Hi-Fi Sound','Micrófono · 3.5mm'],t:['Económico']},
- {id:'s45w',n:'Cargador Samsung 45W PD USB-C',c:'Cargadores y cables',img:'img/p/samsung-45w.jpg',d:'Súper carga rápida para Galaxy y más.',s:['45W Power Delivery','Puerto USB-C','Blanco y negro'],t:['Top']},
- {id:'x90w',n:'Cargador Xiaomi 90W HyperCharge Combo',c:'Cargadores y cables',img:'img/p/xiaomi-90w.jpg',d:'Carga ultrarrápida para Xiaomi y Redmi, con cable.',s:['90W HyperCharge','Incluye cable USB-C'],t:['Nuevo']},
- {id:'ip20w',n:'Cargador 20W USB-C para iPhone',c:'Cargadores y cables',img:'img/p/iphone-20w.jpg',d:'Carga rápida para tu iPhone.',s:['20W','Puerto USB-C'],t:[]},
- {id:'pl14',n:'Cargador Plus PL14 tipo C 4.4A',c:'Cargadores y cables',img:'img/p/plus-pl14.jpg',d:'Carga rápida sin límites, con cable tipo C.',s:['4.4A · 18W','Cable tipo C incluido'],t:['Económico']},
- {id:'k210',n:'Cable Fly K-210C tipo C 6A',c:'Cargadores y cables',img:'img/p/fly-k210.jpg',d:'Carga rápida, conexión confiable. Cable trenzado.',s:['Tipo C · 6A','1 metro · conectores reforzados'],t:[]},
- {id:'xm410',n:'Cable CORN XM410 tipo C 65W',c:'Cargadores y cables',img:'img/p/corn-xm410.jpg',d:'Silicona líquida, suave y antienredos.',s:['Hasta 65W · 6A','1 metro · aleación de zinc'],t:['Nuevo']},
- {id:'cornpb',n:'Power banks CORN 10.000 y 20.000 mAh',c:'Cargadores y cables',img:'img/p/corn-powerbank.jpg',d:'Energía sin límites con cables integrados.',s:['Carga rápida 25W','Pantalla LED','Cables integrados'],t:['Top']},
- {id:'vidrios',n:'Vidrios templados Full Pega',c:'Accesorios',img:'img/p/vidrios.jpg',d:'Máxima protección, cobertura total de borde a borde.',s:['Anti huellas · alta sensibilidad','Para Redmi Note 14/15, Moto Edge, Infinix, Tecno, Honor y más'],t:['Nuevo']},
- {id:'iphone16',n:'iPhone 16',c:'Celulares',img:'img/p/iphone16.jpg',d:'Más poder. Más batería. Más tú.',s:['Pantalla Super Retina XDR OLED 6.1"','Chip A18 · cámara 48MP','Face ID · IP68 · iOS 18'],t:['A crédito','Nuevo'],hero:1},
- {id:'a57',n:'Samsung Galaxy A57 5G',c:'Celulares',img:'img/p/galaxy-a57.jpg',d:'¡Nuevo! Diseño delgado y batería de larga duración.',s:['5G','Colores claro y oscuro','Disponible a crédito'],t:['A crédito','Nuevo']},
- {id:'a37',n:'Samsung Galaxy A37 5G',c:'Celulares',img:'img/p/galaxy-a37.jpg',d:'Conectividad 5G con triple cámara.',s:['5G','Triple cámara','Disponible a crédito'],t:['A crédito','Nuevo']},
- {id:'note15pro',n:'Redmi Note 15 Pro',c:'Celulares',img:'img/p/redmi-note15pro.jpg',d:'Cámara de 200MP y gran batería.',s:['Pantalla AMOLED 6.77" FHD+','Cámara principal 200MP','Batería 6500mAh · IP65','Gorilla Glass Victus 2'],t:['A crédito','Nuevo']},
- {id:'hot70',n:'Infinix Hot 70',c:'Celulares',img:'img/p/infinix-hot70.jpg',d:'Estilo que impacta, rendimiento que destaca.',s:['Batería 5600mAh','Colores lila, verde y negro','Amplio almacenamiento'],t:['A crédito','Nuevo']},
- {id:'redmia5',n:'Redmi A5',c:'Celulares',img:'img/p/redmi-a5.jpg',d:'Económico y completo para el día a día.',s:['64GB · 6GB RAM','Cámara dual 32MP con IA'],t:['A crédito','Económico']},
- {id:'lenovoe310',n:'Lenovo Tab + Folio Case + audífonos E310',c:'Tablets',img:'img/p/lenovo-e310.jpg',d:'Combo: tablet con estuche y audífonos inalámbricos de regalo.',s:['Incluye Folio Case','Incluye audífonos Lenovo E310'],t:['A crédito','Oferta']},
- {id:'promax',n:'Proyector Max Juegos HCS350 Mini',c:'Gadgets',img:'img/p/proyector-max.jpg',d:'Proyector + consola: diversión sin límites en pantalla gigante.',s:['Soporte 4K · 450 lúmenes ANSI','Hasta 150" · WiFi 6 · Android','Incluye control de juego y control remoto'],t:['A crédito','Top'],hero:1},
- {id:'hy300',n:'Proyector HY300 Ultra HD',c:'Gadgets',img:'img/p/proyector-hy300.jpg',d:'Pequeño tamaño, gran experiencia.',s:['1080P compatible 4K','Hasta 150" · WiFi 6 · Bluetooth 5.0','Android 11 · corrección trapezoidal automática'],t:['A crédito']},
- {id:'astro',n:'Proyector de galaxia astronauta',c:'Gadgets',img:'img/p/proyector-astronauta.jpg',d:'Llena tu cuarto de estrellas. ¡Regalo ideal!',s:['Cabeza giratoria 360°','Luces de galaxia'],t:['Top']},
- {id:'plusx30',n:'Cargador Plus X30 PD 30W tipo C',c:'Cargadores y cables',img:'img/p/plus-x30.jpg',d:'2 en 1: carga rápida y eficiente con cable incluido.',s:['30W Power Delivery','Puerto tipo C · cable incluido'],t:['Nuevo']},
- {id:'plus3a',n:'Cargadores Plus 3.0A V8 / tipo C',c:'Cargadores y cables',img:'img/p/plus-cargadores3a.jpg',d:'Carga rápida siempre contigo. Cargador + cable USB.',s:['3.0A','Versiones V8 y tipo C'],t:['Económico']},
- {id:'flyadapt',n:'Adaptadores Fly C-100 · C-120 · C-150',c:'Cargadores y cables',img:'img/p/fly-adaptadores.jpg',d:'Potencia, seguridad y rendimiento.',s:['1.5A · 2.4A · 2.1A'],t:['Económico']},
- {id:'plusstereo',n:'Audífonos Plus Stereo Headset',c:'Audio',img:'img/p/plus-stereo.jpg',d:'Escucha cada detalle con micrófono integrado.',s:['Conexión 3.5mm','Micrófono integrado'],t:['Económico']},
- {id:'flyh90',n:'Audífonos Fly H-90 de colores',c:'Audio',img:'img/p/fly-h90.jpg',d:'Siente tu música como nunca, en 8 colores.',s:['Control de volumen','Micrófono · 3.5mm','8 colores'],t:['Económico']},
- {id:'iphone17',n:'iPhone 17 Pro Max 256GB',c:'Celulares',img:'img/p/iphone17.jpg',d:'Colores azul, plata y naranja. ¡Elige tu color y llévalo hoy!',s:['256GB de almacenamiento','Colores: Azul · Plata · Naranja','Disponible a crédito'],t:['A crédito','Oferta'],hero:1},
- {id:'s26ultra',n:'Samsung Galaxy S26 Ultra',c:'Celulares',img:'img/p/s26ultra.jpg',d:'El poder de lo épico, con S Pen incluido y Galaxy AI.',s:['Pantalla 6.8" Dynamic AMOLED 2X QHD+ 120Hz','Snapdragon 8 Elite for Galaxy','Cámaras 200MP + 50MP + 50MP + 12MP','Batería 5000mAh · carga 45W · IP68','256GB / 512GB · 5 colores Titanium'],t:['A crédito','Nuevo'],hero:1},
- {id:'redminote15',n:'Redmi Note 15 Pro+',c:'Celulares',img:'img/p/redminote15.jpg',d:'Diseño premium en tres colores: negro, azul y café.',s:['Cámara 200MP','Batería 6500mAh · carga 100W HyperCharge','Snapdragon 7s Gen 4 · IP68','Colores negro, azul y café'],t:['A crédito','Nuevo'],hero:1},
- {id:'iphones',n:'iPhone · varios modelos',c:'Celulares',img:'img/p/iphones.jpg',d:'Tenemos varios modelos y colores de iPhone. Pregunta por el tuyo.',s:['Varios modelos y colores','Disponible a crédito'],t:['A crédito']},
- {id:'s25fe',n:'Samsung Galaxy S25 FE',c:'Celulares',img:'img/p/s25fe.jpg',d:'Diseñado para inspirar: cámara triple y pantalla AMOLED.',s:['Pantalla 6.7" Dynamic AMOLED 2X 120Hz','Exynos 2400e','Cámaras 50MP + 12MP + 8MP','Batería 4700mAh · carga inalámbrica','128GB / 256GB · 8GB RAM · IP68'],t:['A crédito']},
- {id:'a07',n:'Samsung Galaxy A07 64GB',c:'Celulares',img:'img/p/a07.jpg',d:'Potencia para tu día con gran batería.',s:['Pantalla 6.7" 90Hz','Cámara 50MP','Batería 5000mAh · carga 25W','IP54 · lector de huella lateral'],t:['A crédito']},
- {id:'redmi15c',n:'Redmi 15C',c:'Celulares',img:'img/p/redmi15c.jpg',d:'Gran batería y gran pantalla a excelente precio.',s:['Pantalla 6.9" 120Hz','Batería 6000mAh','Carga rápida 33W'],t:['A crédito']},
- {id:'redmia7',n:'Redmi A7 Pro',c:'Celulares',img:'img/p/redmi-a7pro.jpg',d:'¡Nuevo! Gran pantalla y batería para todo el día.',s:['Pantalla 6.9"','Batería 6000mAh','128GB'],t:['A crédito','Nuevo']},
- {id:'infinix50',n:'Infinix Note 50 Pro',c:'Celulares',img:'img/p/infinix-note50.jpg',d:'Toma el control: AI Phone con pantalla de 144Hz.',s:['Pantalla AMOLED curva 6.78" 144Hz','Helio G100 Ultimate · 256GB · 16GB RAM (8+8)','Batería 5200mAh · 90W + 30W inalámbrica','Cámara 50MP OIS · sonido JBL · NFC'],t:['A crédito','Nuevo']},
- {id:'watchultra',n:'Samsung Galaxy Watch Ultra',c:'Smart y hogar',img:'img/p/watch-ultra.jpg',d:'Diseñado para superar tus límites.',s:['Pantalla Super AMOLED 1.5" · cristal de zafiro','Caja de titanio · 10ATM','Hasta 100 h de batería · GPS doble frecuencia','Colores Titanium Silver y Gray'],t:['A crédito','Top'],hero:1},
- {id:'echospot',n:'Echo Spot con Alexa',c:'Smart y hogar',img:'img/p/echo-spot.jpg',d:'Despertador inteligente con pantalla y Alexa.',s:['Pantalla con hora y clima','Colores blanco y negro'],t:['Nuevo']},
- {id:'echodot',n:'Echo Dot con Alexa',c:'Smart y hogar',img:'img/p/echo-dot.jpg',d:'Parlante inteligente: música, alarmas y control por voz.',s:['Varios colores','Control por voz con Alexa'],t:[]},
- {id:'bose',n:'Parlantes Bose',c:'Audio',img:'img/p/bose.jpg',d:'Sonido que te mueve. Pregunta por referencias.',s:['Pregunta por modelos y precio'],t:['A crédito']},
- {id:'airplus',n:'Audífonos Plus AirPlus 4 · 3 Pro · 3 · Pro',c:'Audio',img:'img/p/airplus.jpg',d:'Línea AirPlus: más potencia, más estilo.',s:['Bluetooth · control táctil','Modelos con cancelación de ruido (ANC)','Carga magnética'],t:['Nuevo']},
- {id:'plushf',n:'Manos libres Plus PL-23',c:'Audio',img:'img/p/plus-handsfree.jpg',d:'Sonido Hi-Fi con micrófono para llamadas.',s:['Conector 3.5mm','Micrófono integrado'],t:['Económico']},
- {id:'aux',n:'Cable auxiliar Fly AUX-03',c:'Cargadores y cables',img:'img/p/fly-aux.jpg',d:'Conecta tu música a donde vayas: carro, parlantes y más.',s:['3.5mm · 200 cm','Cable trenzado resistente'],t:[]},
- {id:'k490',n:'Cable Fly K-490C tipo C 5A',c:'Cargadores y cables',img:'img/p/fly-k490.jpg',d:'Carga rápida y transferencia de datos.',s:['Tipo C · 5A','1 metro'],t:[]},
- {id:'c530',n:'Cargador Fly C-530 25W doble puerto',c:'Cargadores y cables',img:'img/p/fly-c530.jpg',d:'Doble puerto, máxima potencia.',s:['25W · PD + QC','USB y tipo C'],t:[]},
- {id:'c270',n:'Cargadores Fly C-270C / C-450',c:'Cargadores y cables',img:'img/p/fly-c270.jpg',d:'Carga rápida en casa o donde estés. Cable incluido.',s:['C-270C 3.0A con cable tipo C','C-450 2.4A con cable micro'],t:[]},
- {id:'p110',n:'Cargador para carro Fly P-110 55W',c:'Cargadores y cables',img:'img/p/fly-p110.jpg',d:'La velocidad que tu día necesita, en el carro.',s:['55W','Tipo C PD30W + USB Super'],t:['Nuevo']},
- {id:'power',n:'Power banks Fly 25.000 y 35.000 mAh',c:'Cargadores y cables',img:'img/p/powerbank.jpg',d:'Carga + energía para tu día. Incluye modelo magnético inalámbrico.',s:['A-230 solar 25.000mAh','A-260 25.000mAh · 35.000mAh 22.5W','A-250 magnético inalámbrico'],t:['Top']},
- {id:'k3',n:'Dron K3 & E99 Pro',c:'Gadgets',img:'img/p/dron-k3.jpg',d:'Explora nuevos ángulos, captura cada detalle.',s:['Doble cámara 4K','Giro 360°','Colores gris y naranja'],t:['Nuevo']},
- {id:'aro',n:'Aro de luz RGB 36 cm',c:'Gadgets',img:'img/p/aro-luz.jpg',d:'Ilumina tu contenido: ideal para videos y TikTok.',s:['RGB y 20 modos de luz','Trípode y soporte para celular','USB'],t:[]},
- {id:'camimp',n:'Cámara impresora para niños',c:'Gadgets',img:'img/p/camara-impresora.jpg',d:'Crea, imprime y guarda tus mejores momentos. ¡Regalo perfecto!',s:['Impresión térmica sin tinta','Fotos y video · pantalla HD','Batería recargable'],t:['Top']},
- {id:'lenovo',n:'Lenovo Tab One + Folio Case',c:'Tablets',img:'img/p/lenovo.jpg',d:'Tablet ideal para estudio y entretenimiento, con estuche incluido.',s:['Incluye Folio Case','Ideal para estudio y series'],t:['A crédito']},
- {id:'gedi',n:'Cabina Gedi G-1419 Karaoke',c:'Audio',img:'img/p/gedi.jpg',d:'Tu fiesta, tu música, tu momento: karaoke con pantalla.',s:['Pantalla LED 15.4"','2 micrófonos inalámbricos y control','Luces RGB · Bluetooth · USB · TF','Batería recargable'],t:['A crédito','Top'],hero:1},
  {id:'sonivox',n:'Parlantes Sonivox',c:'Audio',img:'img/parlantes-poster.jpg',d:'Cabinas de alta potencia para fiestas y negocios.',s:['Varias referencias','Pregunta por precio'],t:[]},
  {id:'airpro',n:'Audífonos inalámbricos Pro',c:'Audio',img:'img/audifonos.jpg',d:'Cancelación de ruido activa y estuche de carga inalámbrica.',s:['Cancelación de ruido (ANC)','Estuche de carga inalámbrica'],t:[]},
- {id:'flyaud',n:'Audífonos Fly H-130 · H-90 · S6',c:'Audio',img:'img/p/fly-audifonos.jpg',d:'Audífonos económicos con buen sonido y micrófono.',s:['Micrófono incluido','Conector 3.5mm','Súper económicos'],t:['Económico']},
- {id:'flycarg',n:'Cargadores Fly CP-120 / CP-110',c:'Cargadores y cables',img:'img/p/fly-cargadores.jpg',d:'Carga rápida donde quieras, con cable incluido.',s:['3.4A · 18W','Protección contra sobrecarga','2 opciones'],t:[]},
- {id:'flyc310',n:'Cargador Fly Energy C-310 12W',c:'Cargadores y cables',img:'img/p/fly-c310.jpg',d:'Carga súper rápida con cable tipo C a tipo C incluido.',s:['12W · Smart chip','Cable tipo C incluido'],t:[]},
- {id:'pluscarg',n:'Cargador Plus 2.1A PL-113',c:'Cargadores y cables',img:'img/p/plus-cargador.jpg',d:'Carga rápida, diseño compacto y protección inteligente.',s:['2.1A','Puerto USB universal'],t:['Económico']},
- {id:'flycables',n:'Cables Fly K-580C · K-3700C · K-200C · K-180C',c:'Cargadores y cables',img:'img/p/fly-cables.jpg',d:'Cables de alta calidad y máximo rendimiento.',s:['Tipo C · hasta 6A','Carga y sincronización'],t:[]},
- {id:'pluscable',n:'Cable Plus V8 Connection USB',c:'Cargadores y cables',img:'img/p/plus-cable.jpg',d:'Cable micro USB de carga rápida y mayor durabilidad.',s:['Micro USB (V8)','Carga y datos'],t:['Económico']},
  {id:'iphcarg',n:'Cargadores y cables para iPhone',c:'Cargadores y cables',img:'img/cargadores.jpg',d:'Adaptadores 20W y 35W, cables USB-C y Lightning.',s:['20W y 35W','USB-C y Lightning'],t:[]},
- {id:'adapt',n:'Adaptador internacional Plus',c:'Cargadores y cables',img:'img/p/plus-adaptador.jpg',d:'Un solo adaptador: enchufa en todo el mundo.',s:['Más de 150 países','Protector de sobretensión'],t:[]},
- {id:'dron',n:'Dron E88 Pro plegable',c:'Gadgets',img:'img/p/dron-e88.jpg',d:'Vuela más alto, captura más lejos.',s:['Cámara HD · Wi‑Fi','Función hover y flips 360°','Incluye control y batería'],t:['Top'],hero:1},
  {id:'m18',n:'Consola M18 Pro',c:'Gadgets',img:'img/consola.jpg',d:'Miles de juegos retro, 2 controles y salida HDMI.',s:['Pantalla 3.5"','2 controles inalámbricos','Salida HDMI'],t:[]},
  {id:'retro',n:'Radios retro, drones y lámparas LED',c:'Gadgets',img:'img/radios-drone.jpg',d:'Regalos que sorprenden.',s:['Radios Bluetooth vintage','Lámparas LED de cristal'],t:[]},
  {id:'gel',n:'Lanzadores de hidrogel',c:'Gadgets',img:'img/hidrogel.jpg',d:'Los más pedidos por los niños y jóvenes.',s:['Varios diseños'],t:[]},
  {id:'vent',n:'Ventiladores',c:'Hogar',img:'img/ventilador.jpg',d:'De pedestal, mesa y recargables.',s:['Varias referencias'],t:[]},
  {id:'cabello',n:'Planchas, secadores y patilleras',c:'Hogar',img:'img/cuidado-personal.jpg',d:'Remington, VGR, ProNova y más.',s:['Cuidado del cabello y barba'],t:[]},
 ];
-const CATS=['Todos','Celulares','Smart y hogar','Audio','Cargadores y cables','Accesorios','Gadgets','Tablets','Hogar'];
+const CATS=['Todos',...new Set(PRODUCTS.map(p=>p.c))];
 const grid=document.getElementById('grid'),filt=document.getElementById('filters'),q=document.getElementById('q');
 let cat='Todos';
 CATS.forEach(c=>{const b=document.createElement('button');b.textContent=c;if(c===cat)b.className='on';b.onclick=()=>{cat=c;[...filt.children].forEach(x=>x.classList.toggle('on',x===b));render()};filt.appendChild(b)});
@@ -1019,7 +933,7 @@ drawCart();render();
 
 /* Hero showcase */
 (function(){
-  const items=PRODUCTS.filter(p=>p.hero),stage=document.getElementById('stage'),dots=document.getElementById('showDots');let i=0,timer;
+  let items=PRODUCTS.filter(p=>p.hero);if(!items.length)items=PRODUCTS.slice(0,4);conststage=document.getElementById('stage'),dots=document.getElementById('showDots');let i=0,timer;
   items.forEach((p,k)=>{const im=document.createElement('img');im.src=p.img;im.alt=p.n;if(k>0)im.loading='lazy';stage.appendChild(im);
     const d=document.createElement('button');d.setAttribute('aria-label',p.n);d.onclick=()=>{go(k);restart()};dots.appendChild(d)});
   function go(k){i=k;[...stage.children].forEach((im,j)=>im.classList.toggle('on',j===k));[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===k));
