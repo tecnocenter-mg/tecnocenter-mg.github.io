@@ -421,7 +421,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       <div class="show-dots" id="showDots"></div>
     </div>
   </div>
-  <div class="brands"><div class="brands-in"><span>Apple</span><span>Samsung</span><span>Xiaomi</span><span>Motorola</span><span>Huawei</span><span>Lenovo</span><span>LG</span><span>Fly</span><span>Plus</span><span>Sonivox</span><span>Gedi</span><span>Infinix</span><span>Bose</span><span>Amazon Alexa</span><span>Apple</span><span>Samsung</span><span>Xiaomi</span><span>Motorola</span><span>Huawei</span><span>Lenovo</span><span>LG</span><span>Fly</span><span>Plus</span><span>Sonivox</span><span>Gedi</span><span>Infinix</span><span>Bose</span><span>Amazon Alexa</span></div></div>
+  <div class="brands"><div class="brands-in"><span>Apple</span><span>Samsung</span><span>Xiaomi</span><span>Motorola</span><span>Huawei</span><span>Lenovo</span><span>LG</span><span>Fly</span><span>Plus</span><span>Sonivox</span><span>Gedi</span><span>Infinix</span><span>Honor</span><span>Bose</span><span>Amazon Alexa</span><span>Apple</span><span>Samsung</span><span>Xiaomi</span><span>Motorola</span><span>Huawei</span><span>Lenovo</span><span>LG</span><span>Fly</span><span>Plus</span><span>Sonivox</span><span>Gedi</span><span>Infinix</span><span>Honor</span><span>Bose</span><span>Amazon Alexa</span></div></div>
 </section>
 
 <!-- BENTO -->
@@ -846,7 +846,7 @@ const rules=[
   [/d[oó]nde|direcci|ubica|llegar|horario|abren|cierran/i,ubicacion],
   [/asesor|humano|persona|llamar|whats/i,asesor],
   [/cargador|cable|aud[ií]fono|parlante|forro|vidrio|consola|dron|radio|reloj|ventilador|plancha|precio|cu[aá]nto|vale|tienen/i,productos],
-  [/iphone|samsung|galaxy|redmi|xiaomi|celular|tel[eé]fono|tablet|lenovo|cat[aá]logo|dron|cabina|karaoke|gedi|reloj|watch|alexa|echo|bose|infinix|power ?bank|aro|c[aá]mara|proyector|hot ?70|jbl|playstation|ps ?\d|control|vidrio|pad/i,catalogo],
+  [/iphone|samsung|galaxy|redmi|xiaomi|celular|tel[eé]fono|tablet|lenovo|cat[aá]logo|dron|cabina|karaoke|gedi|reloj|watch|alexa|echo|bose|infinix|power ?bank|aro|c[aá]mara|proyector|hot ?70|jbl|playstation|ps ?\d|control|vidrio|pad|honor|airtag|estuche|afeitadora/i,catalogo],
   [/hola|buen(as|os)|saludo/i,menu],
 ];
 document.getElementById('botForm').addEventListener('submit',e=>{
@@ -867,6 +867,19 @@ setTimeout(()=>hint.classList.remove('show'),12000);
 
 /* ===== Catálogo ===== */
 const PRODUCTS=[
+ {id:'magic7',n:'Honor Magic7 Lite 5G',c:'Celulares',img:'img/p/honor-magic7lite.jpg',d:'Resistencia que te acompaña, potencia que te impulsa.',s:['Pantalla AMOLED curva 6.78" FHD+','Cámara 108MP · batería 6600mAh','Carga rápida 66W · Snapdragon 6 Gen 1','Resistencia 360° certificada'],t:['A crédito','Nuevo']},
+ {id:'x6c',n:'Honor X6c',c:'Celulares',img:'img/p/honor-x6c.jpg',d:'Batería de larga duración y gran almacenamiento.',s:['Pantalla 6.61" HD+','Cámara 50MP · batería 5200mAh','6GB RAM + 128GB'],t:['A crédito']},
+ {id:'play10',n:'Honor Play10',c:'Celulares',img:'img/p/honor-play10.jpg',d:'Más memoria, más experiencia.',s:['64GB y 128GB','Batería de larga duración'],t:['A crédito','Económico']},
+ {id:'airtag',n:'AirTag',c:'Smart y hogar',img:'img/p/airtag.jpg',d:'Encuentra tus llaves, mochila o billetera con tu iPhone.',s:['Funciona con la app Buscar','IP67 · batería reemplazable'],t:['Nuevo']},
+ {id:'progamer',n:'Proyector Gamer Android 12 + consola retro',c:'Gadgets',img:'img/p/proyector-gamer.jpg',d:'Proyector y consola retro 2 en 1, con 2 controles inalámbricos.',s:['Más de 20.000 juegos retro · 250GB','Android 12 · WiFi 2.4/5G · Bluetooth','Pantalla hasta 130"'],t:['A crédito','Top']},
+ {id:'promulti',n:'Proyector multimedia Ultra HD',c:'Gadgets',img:'img/p/proyector-multimedia.jpg',d:'Cine en casa, juegos y presentaciones.',s:['Altavoz integrado','HDMI, USB, AV y más'],t:['A crédito']},
+ {id:'vgr390',n:'Afeitadora VGR V-390',c:'Hogar',img:'img/p/vgr-v390.jpg',d:'Afeitadora profesional, portátil y liviana.',s:['Batería de larga duración','Diseño ergonómico'],t:['Nuevo']},
+ {id:'ibuy',n:'Estuche infantil iBuy para tablet',c:'Accesorios',img:'img/p/estuche-ibuy.jpg',d:'Antigolpes con soporte y agarre, ideal para niños.',s:['Azul, verde y rosado','Samsung A9/A11 (y Plus), Redmi Pad 2, Redmi Pad SE 11'],t:['Top']},
+ {id:'smartcase',n:'Smart Case para tablet',c:'Accesorios',img:'img/p/smart-case.jpg',d:'Protección total con cierre magnético y soporte multiángulo.',s:['iPad, Samsung A9/A11/S10 FE, Redmi Pad'],t:[]},
+ {id:'vidtab',n:'Vidrios protectores para tablet',c:'Accesorios',img:'img/p/vidrios-tablet.jpg',d:'Máxima protección, claridad y sensibilidad.',s:['Samsung A9/A11/S10 FE, Redmi Pad 2/SE, iPad'],t:[]},
+ {id:'p40',n:'Cargador para carro Fly P-40',c:'Cargadores y cables',img:'img/p/fly-p40.jpg',d:'Doble puerto USB-A + USB-C.',s:['12W · QC3.0 + PD','Protección inteligente'],t:['Económico']},
+ {id:'cp120',n:'Cargador Fly CP-120 15W',c:'Cargadores y cables',img:'img/p/fly-cp120.jpg',d:'Travel charging con cable USB-C.',s:['3.1A · 15W','Cable incluido'],t:['Económico']},
+ {id:'cp110',n:'Cargadores Fly 3.1A tipo C',c:'Cargadores y cables',img:'img/p/fly-cp110.jpg',d:'Rápidos, seguros y confiables.',s:['3.1A','Cable tipo C incluido'],t:['Económico']},
  {id:'redmipad2',n:'Redmi Pad 2 4G',c:'Tablets',img:'img/p/redmi-pad2.jpg',d:'Tablet con conexión 4G y sonido Dolby Atmos.',s:['Conectividad 4G','Sonido Dolby Atmos','Xiaomi HyperOS'],t:['A crédito','Nuevo']},
  {id:'echoshow8',n:'Echo Show 8 con Alexa',c:'Smart y hogar',img:'img/p/echo-show8.jpg',d:'Pantalla inteligente: música, videollamadas y control del hogar con tu voz.',s:['Pantalla HD de 8"','Cámara 13MP para videollamadas','Altavoces estéreo con Dolby'],t:['A crédito','Nuevo']},
  {id:'jblclip5',n:'Parlante JBL Clip 5',c:'Audio',img:'img/p/jbl-clip5.jpg',d:'Portátil, con mosquetón y resistente al agua.',s:['Bluetooth 5.3','IP67 resistente al agua y polvo','Hasta 12 h de batería'],t:['Top'],hero:1},
@@ -899,10 +912,10 @@ const PRODUCTS=[
  {id:'plusstereo',n:'Audífonos Plus Stereo Headset',c:'Audio',img:'img/p/plus-stereo.jpg',d:'Escucha cada detalle con micrófono integrado.',s:['Conexión 3.5mm','Micrófono integrado'],t:['Económico']},
  {id:'flyh90',n:'Audífonos Fly H-90 de colores',c:'Audio',img:'img/p/fly-h90.jpg',d:'Siente tu música como nunca, en 8 colores.',s:['Control de volumen','Micrófono · 3.5mm','8 colores'],t:['Económico']},
  {id:'iphone17',n:'iPhone 17 Pro Max 256GB',c:'Celulares',img:'img/p/iphone17.jpg',d:'Colores azul, plata y naranja. ¡Elige tu color y llévalo hoy!',s:['256GB de almacenamiento','Colores: Azul · Plata · Naranja','Disponible a crédito'],t:['A crédito','Oferta'],hero:1},
- {id:'s26ultra',n:'Samsung Galaxy S26 Ultra',c:'Celulares',img:'img/p/s26ultra.jpg',d:'El poder de lo épico, con S Pen incluido y Galaxy AI.',s:['Pantalla 6.8" Dynamic AMOLED 2X 120Hz','Cámara 200MP + periscopio','Batería 5000mAh · carga 45W','256GB / 512GB · IP68'],t:['A crédito','Nuevo'],hero:1},
+ {id:'s26ultra',n:'Samsung Galaxy S26 Ultra',c:'Celulares',img:'img/p/s26ultra.jpg',d:'El poder de lo épico, con S Pen incluido y Galaxy AI.',s:['Pantalla 6.8" Dynamic AMOLED 2X QHD+ 120Hz','Snapdragon 8 Elite for Galaxy','Cámaras 200MP + 50MP + 50MP + 12MP','Batería 5000mAh · carga 45W · IP68','256GB / 512GB · 5 colores Titanium'],t:['A crédito','Nuevo'],hero:1},
  {id:'redminote15',n:'Redmi Note 15 Pro+',c:'Celulares',img:'img/p/redminote15.jpg',d:'Diseño premium en tres colores: negro, azul y café.',s:['Cámara 200MP','Batería 6500mAh · carga 100W HyperCharge','Snapdragon 7s Gen 4 · IP68','Colores negro, azul y café'],t:['A crédito','Nuevo'],hero:1},
  {id:'iphones',n:'iPhone · varios modelos',c:'Celulares',img:'img/p/iphones.jpg',d:'Tenemos varios modelos y colores de iPhone. Pregunta por el tuyo.',s:['Varios modelos y colores','Disponible a crédito'],t:['A crédito']},
- {id:'s25fe',n:'Samsung Galaxy S25 FE',c:'Celulares',img:'img/p/s25fe.jpg',d:'Diseñado para inspirar: cámara triple y pantalla AMOLED.',s:['Pantalla 6.7" AMOLED 2X 120Hz','Cámaras 50MP + 12MP + 8MP','Batería 4700mAh · carga inalámbrica','128GB / 256GB · 8GB RAM · IP68'],t:['A crédito']},
+ {id:'s25fe',n:'Samsung Galaxy S25 FE',c:'Celulares',img:'img/p/s25fe.jpg',d:'Diseñado para inspirar: cámara triple y pantalla AMOLED.',s:['Pantalla 6.7" Dynamic AMOLED 2X 120Hz','Exynos 2400e','Cámaras 50MP + 12MP + 8MP','Batería 4700mAh · carga inalámbrica','128GB / 256GB · 8GB RAM · IP68'],t:['A crédito']},
  {id:'a07',n:'Samsung Galaxy A07 64GB',c:'Celulares',img:'img/p/a07.jpg',d:'Potencia para tu día con gran batería.',s:['Pantalla 6.7" 90Hz','Cámara 50MP','Batería 5000mAh · carga 25W','IP54 · lector de huella lateral'],t:['A crédito']},
  {id:'redmi15c',n:'Redmi 15C',c:'Celulares',img:'img/p/redmi15c.jpg',d:'Gran batería y gran pantalla a excelente precio.',s:['Pantalla 6.9" 120Hz','Batería 6000mAh','Carga rápida 33W'],t:['A crédito']},
  {id:'redmia7',n:'Redmi A7 Pro',c:'Celulares',img:'img/p/redmi-a7pro.jpg',d:'¡Nuevo! Gran pantalla y batería para todo el día.',s:['Pantalla 6.9"','Batería 6000mAh','128GB'],t:['A crédito','Nuevo']},
