@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#05060f">
 <meta property="og:title" content="Tecno Center · Dosquebradas">
 <meta property="og:description" content="Celulares y tecnología a crédito, servicio técnico y giros a Venezuela. Calle 64 # 16-42, Capilla.">
-<meta property="og:image" content="img/credito.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -96,6 +96,7 @@ h2{font-size:clamp(1.8rem,4vw,2.9rem)}
 .stats{display:flex;gap:28px;margin-top:2.4rem;flex-wrap:wrap}
 .stats b{display:block;font:700 1.6rem Unbounded,sans-serif}
 .stats span{font-size:.8rem;color:var(--mut)}
+.hero-card{border-radius:28px;padding:30px}.hc-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:10px 0 22px}.hc-list li{display:flex;align-items:center;gap:14px;font-weight:700;font-size:1.02rem;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line)}.hc-list b{font-size:1.4rem}
 .show{position:relative;height:560px}
 .show-glow{position:absolute;inset:12% 10%;border-radius:50%;background:radial-gradient(circle,rgba(47,107,255,.55),transparent 65%);filter:blur(20px)}
 .show-stage{position:absolute;inset:0;display:grid;place-items:center}
@@ -126,7 +127,7 @@ h2{font-size:clamp(1.8rem,4vw,2.9rem)}
 .bx-credit{grid-column:span 2;grid-row:span 2;flex-direction:row;gap:18px;background:linear-gradient(150deg,#1a2a6c,#0b1030 70%);padding:28px}
 .bx-credit .bx-txt{display:flex;flex-direction:column;gap:.7rem;flex:1}
 .bx-credit h3{font-size:2rem}
-.bx-credit img{width:46%;border-radius:16px;object-fit:cover;object-position:top;box-shadow:0 20px 40px -15px #000}
+.bx-credit img{display:none;width:46%;border-radius:16px;object-fit:cover;object-position:top;box-shadow:0 20px 40px -15px #000}
 .bx-tech{grid-column:span 2;background:linear-gradient(135deg,rgba(255,45,85,.18),var(--card) 60%)}
 .bx-vz{background:linear-gradient(140deg,rgba(255,214,10,.15),rgba(47,107,255,.12),rgba(255,45,85,.12))}
 .bx-subs{background:linear-gradient(140deg,rgba(139,92,246,.2),var(--card))}
@@ -194,6 +195,7 @@ h2{font-size:clamp(1.8rem,4vw,2.9rem)}
 .vz{background:radial-gradient(1000px 500px at 80% 0,rgba(255,214,10,.08),transparent),radial-gradient(800px 500px at 0 100%,rgba(255,45,85,.08),transparent),var(--bg2)}
 .vzt{background:linear-gradient(90deg,#ffd60a,#2f6bff,#ff2d55);-webkit-background-clip:text;background-clip:text;color:transparent}
 .split{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center}
+.split.one,.split.solo{grid-template-columns:1fr;max-width:760px}
 .split.rev{grid-template-columns:1.1fr .9fr}
 .flyer{border-radius:24px;border:1px solid var(--line);width:100%}
 .calc{margin-top:22px;background:#fff;color:#0b1230;border-radius:22px;padding:20px;box-shadow:0 30px 60px -25px rgba(0,0,0,.8)}
@@ -275,7 +277,7 @@ h2{font-size:clamp(1.8rem,4vw,2.9rem)}
 @media(max-width:900px){.paygrid{grid-template-columns:1fr}}
 
 /* location */
-.loc{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+.loc{display:grid;grid-template-columns:minmax(0,640px);gap:26px;align-items:center}
 .loc-card{border-radius:26px;padding:32px}
 .loc-card h2{margin-bottom:1.2rem}
 .li{display:flex;gap:.9rem;align-items:flex-start;margin-top:14px}
@@ -378,15 +380,14 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       <span class="logo-txt">Tecno<b>Center</b></span>
     </a>
     <div class="menu" id="menu">
-      <a href="#catalogo">Catálogo</a>
-      <a href="#credito">Crédito</a>
+            <a href="#credito">Crédito</a>
       <a href="#giros">Giros</a>
       <a href="#servicios">Servicios</a>
       <a href="#videos">Videos</a>
       <a href="#ubicacion">Ubicación</a>
     </div>
     <div class="nav-act">
-      <button class="cart-btn" id="cartOpen" aria-label="Ver mi pedido">🛒<span id="cartCount">0</span></button>
+      
       <a class="btn btn-wa sm wa-link" data-msg="Hola Tecno Center, quiero información" href="#"><svg class="ico"><use href="#wa"/></svg><span class="hide-sm">WhatsApp</span></a>
       <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
     </div>
@@ -403,7 +404,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       <h1>Tecnología que <span class="grad">te mueve.</span><br>Llévala hoy <span class="red">a crédito.</span></h1>
       <p class="lead">Celulares, audio, accesorios, motos y electrodomésticos. Servicio técnico experto, giros a Venezuela y pagos en un solo lugar.</p>
       <div class="ctas">
-        <a class="btn btn-main" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn-main" href="#credito">Ver crédito</a>
         <a class="btn btn-glass" href="#solicitar">Solicitar crédito</a>
       </div>
       <div class="stats">
@@ -412,13 +413,16 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
         <div><b>⚡</b><span>respuesta inmediata</span></div>
       </div>
     </div>
-    <div class="show reveal" id="show">
-      <div class="show-glow"></div>
-      <div class="show-stage" id="stage"></div>
-      <div class="show-info glass"><small>Destacado</small><b id="showName"></b><span id="showTag"></span></div>
-      <div class="badge-float b1 glass">✅ Aplica reportados</div>
-      <div class="badge-float b2 glass">🏍️ Motos a crédito</div>
-      <div class="show-dots" id="showDots"></div>
+    <div class="hero-card glass reveal">
+      <span class="eyebrow">Tecno Center · Capilla</span>
+      <ul class="hc-list">
+        <li><b>📱</b>Celulares y tecnología a crédito</li>
+        <li><b>🏍️</b>Motos, electrodomésticos y muebles</li>
+        <li><b>🔧</b>Servicio técnico Android y iPhone</li>
+        <li><b>🇻🇪</b>Giros a Venezuela</li>
+        <li><b>🏦</b>Corresponsal Bancolombia</li>
+      </ul>
+      <a class="btn btn-wa full wa-link" data-msg="Hola Tecno Center, quiero información" href="#"><svg class="ico"><use href="#wa"/></svg>Escríbenos · 321 871 4191</a>
     </div>
   </div>
   <div class="brands"><div class="brands-in"><span>Apple</span><span>Samsung</span><span>Xiaomi</span><span>Motorola</span><span>Huawei</span><span>Lenovo</span><span>LG</span><span>Fly</span><span>Plus</span><span>Sonivox</span><span>Gedi</span><span>Infinix</span><span>Honor</span><span>Bose</span><span>Amazon Alexa</span><span>Apple</span><span>Samsung</span><span>Xiaomi</span><span>Motorola</span><span>Huawei</span><span>Lenovo</span><span>LG</span><span>Fly</span><span>Plus</span><span>Sonivox</span><span>Gedi</span><span>Infinix</span><span>Honor</span><span>Bose</span><span>Amazon Alexa</span></div></div>
@@ -431,7 +435,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
     <div class="bento">
       <a href="#credito" class="bx bx-credit reveal">
         <div class="bx-txt"><span class="chip-s">Nuevo</span><h3>Todo a crédito</h3><p>Celulares, motos, neveras, TV, muebles, camas, herramientas, guadañas y lo que imagines.</p><span class="arrow">Solicitar →</span></div>
-        <img src="img/credito.jpg" alt="Productos a crédito" loading="lazy">
+        
       </a>
       <a href="#videos" class="bx bx-tech reveal"><span class="bx-ic">🔧</span><h3>Servicio técnico</h3><p>Android y iPhone: pantallas, pines de carga, baterías, microelectrónica.</p><span class="arrow">Ver reparaciones →</span></a>
       <a href="#giros" class="bx bx-vz reveal"><span class="bx-ic">🇻🇪</span><h3>Giros a Venezuela</h3><p>Cambios Los Chamos: rápido y confiable. Calcula tu envío.</p><span class="arrow">Calcular →</span></a>
@@ -439,23 +443,6 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       <div class="bx bx-rec reveal"><span class="bx-ic">📶</span><h3>Recargas</h3><p>Claro, Tigo, Movistar, WOM, ETB y líneas de Venezuela.</p></div>
       <div class="bx bx-bank reveal"><span class="bx-ic">🏦</span><h3>Corresponsal Bancolombia</h3><p>Retiros, depósitos y pago de servicios.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- CATALOGO -->
-<section id="catalogo" class="sec sec-alt">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Catálogo</span>
-      <h2>Arma tu pedido</h2>
-      <p class="lead">Agrega productos y envíanos tu pedido por WhatsApp. Te confirmamos precio, disponibilidad y opciones de crédito.</p>
-    </div>
-    <div class="cat-bar reveal">
-      <div class="filters" id="filters"></div>
-      <label class="search"><span>🔍</span><input id="q" placeholder="Buscar: Samsung, cargador, dron…" aria-label="Buscar productos"></label>
-    </div>
-    <div class="grid" id="grid"></div>
-    <p class="empty" id="empty" hidden>No encontramos ese producto aquí, pero seguramente lo tenemos. <a class="wa-link" data-msg="Hola Tecno Center, ¿tienen este producto?" href="#">Pregúntanos por WhatsApp →</a></p>
   </div>
 </section>
 
@@ -504,8 +491,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
 <!-- GIROS -->
 <section id="giros" class="sec vz">
   <div class="wrap">
-    <div class="split">
-      <img class="reveal flyer" src="img/giros-flyer.jpg" alt="Cambios Los Chamos: giros a Venezuela en Tecno Center, Calle 64 # 16-42 Capilla" loading="lazy">
+    <div class="split one">
       <div class="reveal">
         <span class="eyebrow">Cambios Los Chamos · en Tecno Center</span>
         <h2>Giros y envíos a <span class="vzt">Venezuela</span> 🇻🇪</h2>
@@ -529,16 +515,16 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       <div><p class="mini-t">Recibimos tu pago por</p><div class="tags y"><span>Bancolombia</span><span>Nequi</span><span>Davivienda</span><span>Efecty</span><span>SuperGIROS</span><span>Gane</span><span>Apostar</span><span>Western Union</span><span>PayPal</span></div></div>
     </div>
     <div class="vz-grid">
-      <div class="vzc reveal"><img src="img/recargas-vzla.jpg" alt="Recargas a líneas de Venezuela" loading="lazy"><div><h3>Recargas a Venezuela 📱</h3><p>Movistar, Digitel y Movilnet.</p><a class="wa-link" data-msg="Hola, quiero hacer una recarga a una línea de Venezuela" href="#">Pedir recarga →</a></div></div>
-      <div class="vzc reveal"><img src="img/productos-vzla.jpg" alt="Productos de Venezuela" loading="lazy"><div><h3>Productos de Venezuela 🫓</h3><p>Mavesa, Rikesa, Maltín, Samba, Galak, Diablitos y más.</p><a class="wa-link" data-msg="Hola, ¿qué productos de Venezuela tienen disponibles?" href="#">Ver disponibles →</a></div></div>
-      <div class="vzc reveal"><img src="img/giros-abrimos.jpg" alt="Cambios Los Chamos ya abrió" loading="lazy"><div><h3>¡Ya abrimos! 🎉</h3><p>Ahora en Tecno Center, barrio Capilla.</p><a class="wa-link" data-msg="Hola, quiero hacer un giro a Venezuela. ¿A cómo está la tasa hoy?" href="#">Consultar tasa →</a></div></div>
+      <div class="vzc reveal"><div><h3>Recargas a Venezuela 📱</h3><p>Movistar, Digitel y Movilnet.</p><a class="wa-link" data-msg="Hola, quiero hacer una recarga a una línea de Venezuela" href="#">Pedir recarga →</a></div></div>
+      <div class="vzc reveal"><div><h3>Productos de Venezuela 🫓</h3><p>Mavesa, Rikesa, Maltín, Samba, Galak, Diablitos y más.</p><a class="wa-link" data-msg="Hola, ¿qué productos de Venezuela tienen disponibles?" href="#">Ver disponibles →</a></div></div>
+      <div class="vzc reveal"><div><h3>¡Ya abrimos! 🎉</h3><p>Ahora en Tecno Center, barrio Capilla.</p><a class="wa-link" data-msg="Hola, quiero hacer un giro a Venezuela. ¿A cómo está la tasa hoy?" href="#">Consultar tasa →</a></div></div>
     </div>
   </div>
 </section>
 
 <!-- SUSCRIPCIONES -->
 <section id="suscripciones" class="sec">
-  <div class="wrap split rev">
+  <div class="wrap split solo">
     <div class="reveal">
       <span class="eyebrow">Entretenimiento y herramientas</span>
       <h2>Cuentas y suscripciones <span class="grad">al mejor precio</span></h2>
@@ -551,7 +537,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
       </div>
       <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, quiero información de las cuentas y suscripciones digitales" href="#"><svg class="ico"><use href="#wa"/></svg>Pedir mi cuenta</a>
     </div>
-    <div class="subs-img reveal"><img src="img/suscripciones.jpg" alt="Cuentas y suscripciones Tecno Center" loading="lazy"><img src="img/familia.jpg" alt="Entretenimiento para toda la familia" loading="lazy"></div>
+    
   </div>
 </section>
 
@@ -570,21 +556,6 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
     <div class="tech-cta glass reveal">
       <div><h3>¿Tu celular tiene un problema?</h3><p class="muted">Cuéntanos la marca, el modelo y qué le pasa. Te damos diagnóstico y precio.</p></div>
       <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, necesito servicio técnico para mi celular" href="#"><svg class="ico"><use href="#wa"/></svg>Cotizar reparación</a>
-    </div>
-  </div>
-</section>
-
-<!-- LOCAL -->
-<section id="local" class="sec">
-  <div class="wrap">
-    <div class="head reveal"><span class="eyebrow">Nuestro local</span><h2>Ven y conócenos</h2></div>
-    <div class="gal reveal">
-      <figure class="w2 h2"><img src="img/calle.jpg" alt="Tecno Center desde la calle" loading="lazy"></figure>
-      <figure class="w2"><img src="img/interior.jpg" alt="Interior del local" loading="lazy"></figure>
-      <figure><img src="img/fachada.jpg" alt="Aviso de Tecno Center" loading="lazy"></figure>
-      <figure class="h2"><img src="img/aviso.jpg" alt="Aviso de servicios" loading="lazy"></figure>
-      <figure><img src="img/cargadores.jpg" alt="Vitrina de cargadores" loading="lazy"></figure>
-      <figure class="w2"><img src="img/vitrina.jpg" alt="Vitrina de productos" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -626,7 +597,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
         <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center" href="#"><svg class="ico"><use href="#wa"/></svg>Escríbenos</a>
       </div>
     </div>
-    <img class="loc-img reveal" src="img/fachada-frontal.jpg" alt="Fachada de Tecno Center en Calle 64 # 16-42, Capilla" loading="lazy">
+    
   </div>
   <div class="wrap">
     <div class="band reveal">
@@ -644,36 +615,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 120px;color:var(--mut);fo
   </div>
 </footer>
 
-<!-- MODAL PRODUCTO -->
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modal-box">
-    <button class="modal-x" id="modalX" aria-label="Cerrar">✕</button>
-    <div class="modal-img"><img id="mImg" alt=""></div>
-    <div class="modal-txt">
-      <span class="chip-s" id="mCat"></span>
-      <h3 id="mName"></h3>
-      <p id="mDesc" class="muted"></p>
-      <ul id="mSpecs"></ul>
-      <div class="ctas">
-        <button class="btn btn-main" id="mAdd">🛒 Agregar al pedido</button>
-        <a class="btn btn-wa" id="mWA" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Preguntar</a>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- CARRITO -->
-<aside class="drawer" id="drawer" aria-hidden="true">
-  <div class="dr-head"><b>🛒 Mi pedido</b><button id="cartClose" aria-label="Cerrar">✕</button></div>
-  <div class="dr-body" id="cartList"></div>
-  <div class="dr-foot">
-    <div class="field"><label for="cName">Tu nombre</label><input id="cName" placeholder="¿Cómo te llamas?"></div>
-    <label class="chk"><input type="checkbox" id="cCred"> Lo quiero a crédito</label>
-    <button class="btn btn-wa full" id="cartSend"><svg class="ico"><use href="#wa"/></svg>Enviar pedido por WhatsApp</button>
-    <p class="note">Te confirmamos precios y disponibilidad por WhatsApp.</p>
-  </div>
-</aside>
-<div class="scrim" id="scrim"></div>
 
 <button class="wa-float" id="botOpen" aria-label="Abrir asistente de Tecno Center"><svg><use href="#wa"/></svg><span class="bot-badge">1</span></button>
 <div class="bot-hint" id="botHint">¿Te ayudo? 👋</div>
@@ -761,7 +703,7 @@ function menuMini(){chips([back])}
 
 async function menu(){
   await say('¿En qué te puedo ayudar? Elige una opción 👇',450);
-  chips([['🛒 Ver catálogo',catalogo],['🛍️ Crédito',credito],['🔧 Servicio técnico',tecnico],['🎧 Productos y accesorios',productos],['📶 Recargas y cuentas',recargas],['🇻🇪 Giros a Venezuela',giros],['💳 Formas de pago',pagos],['📍 Ubicación',ubicacion],['👤 Hablar con un asesor',asesor]]);
+  chips([['🛍️ Crédito',credito],['🔧 Servicio técnico',tecnico],['🎧 Productos y accesorios',productos],['📶 Recargas y cuentas',recargas],['🇻🇪 Giros a Venezuela',giros],['💳 Formas de pago',pagos],['📍 Ubicación',ubicacion],['👤 Hablar con un asesor',asesor]]);
 }
 async function start(){
   started=true;
@@ -832,8 +774,8 @@ async function asesor(){await say('¡Claro! Te comunico con un asesor por WhatsA
 
 async function catalogo(){
   await say('📱 Tenemos celulares, audio, cargadores, accesorios, gadgets y mucho más. ¡Pregúntanos por el que buscas!');
-  await say('Te llevo al catálogo: agrega lo que quieras y envíanos tu pedido por WhatsApp 🛒');
-  chips([['🛒 Abrir catálogo',()=>{bot.classList.remove('open');document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})},true],back]);
+  await say('Escríbenos por WhatsApp y te enviamos fotos, precios y opciones de crédito 🛒');
+  chips([toWA('💬 Preguntar por un producto','Hola Tecno Center, quiero preguntar por un producto'),back]);
 }
 /* Texto libre */
 let awaiting=null;
@@ -865,88 +807,10 @@ setTimeout(()=>hint.classList.remove('show'),12000);
 })();
 
 
-/* ===== Catálogo ===== */
-const PRODUCTS=[
- {id:'sonivox',n:'Parlantes Sonivox',c:'Audio',img:'img/parlantes-poster.jpg',d:'Cabinas de alta potencia para fiestas y negocios.',s:['Varias referencias','Pregunta por precio'],t:[]},
- {id:'airpro',n:'Audífonos inalámbricos Pro',c:'Audio',img:'img/audifonos.jpg',d:'Cancelación de ruido activa y estuche de carga inalámbrica.',s:['Cancelación de ruido (ANC)','Estuche de carga inalámbrica'],t:[]},
- {id:'iphcarg',n:'Cargadores y cables para iPhone',c:'Cargadores y cables',img:'img/cargadores.jpg',d:'Adaptadores 20W y 35W, cables USB-C y Lightning.',s:['20W y 35W','USB-C y Lightning'],t:[]},
- {id:'m18',n:'Consola M18 Pro',c:'Gadgets',img:'img/consola.jpg',d:'Miles de juegos retro, 2 controles y salida HDMI.',s:['Pantalla 3.5"','2 controles inalámbricos','Salida HDMI'],t:[]},
- {id:'retro',n:'Radios retro, drones y lámparas LED',c:'Gadgets',img:'img/radios-drone.jpg',d:'Regalos que sorprenden.',s:['Radios Bluetooth vintage','Lámparas LED de cristal'],t:[]},
- {id:'gel',n:'Lanzadores de hidrogel',c:'Gadgets',img:'img/hidrogel.jpg',d:'Los más pedidos por los niños y jóvenes.',s:['Varios diseños'],t:[]},
- {id:'vent',n:'Ventiladores',c:'Hogar',img:'img/ventilador.jpg',d:'De pedestal, mesa y recargables.',s:['Varias referencias'],t:[]},
- {id:'cabello',n:'Planchas, secadores y patilleras',c:'Hogar',img:'img/cuidado-personal.jpg',d:'Remington, VGR, ProNova y más.',s:['Cuidado del cabello y barba'],t:[]},
-];
-const CATS=['Todos',...new Set(PRODUCTS.map(p=>p.c))];
-const grid=document.getElementById('grid'),filt=document.getElementById('filters'),q=document.getElementById('q');
-let cat='Todos';
-CATS.forEach(c=>{const b=document.createElement('button');b.textContent=c;if(c===cat)b.className='on';b.onclick=()=>{cat=c;[...filt.children].forEach(x=>x.classList.toggle('on',x===b));render()};filt.appendChild(b)});
-function render(){
-  const term=q.value.trim().toLowerCase();
-  const list=PRODUCTS.filter(p=>(cat==='Todos'||p.c===cat)&&(!term||(p.n+' '+p.c+' '+p.d).toLowerCase().includes(term)));
-  grid.innerHTML='';
-  list.forEach((p,i)=>{
-    const el=document.createElement('article');el.className='pc';el.style.animationDelay=(i*0.04)+'s';
-    el.innerHTML=`<div class="pc-img"><img src="${p.img}" alt="${p.n}" loading="lazy"><div class="pc-tags">${p.t.map(t=>`<span class="${t==='A crédito'?'cr':(t==='Oferta'||t==='Top'||t==='Nuevo')?'hot':''}">${t}</span>`).join('')}</div></div>
-      <div class="pc-b"><span class="pc-cat">${p.c}</span><h3>${p.n}</h3><p>${p.d}</p>
-      <div class="pc-act"><button class="add${cart[p.id]?' done':''}" data-id="${p.id}">${cart[p.id]?'✓ En el pedido':'🛒 Agregar'}</button><a class="ask" href="${waUrl('Hola Tecno Center, me interesa: '+p.n+'. ¿Precio y disponibilidad?')}" target="_blank" rel="noopener">Preguntar</a></div></div>`;
-    el.querySelector('.pc-img').onclick=()=>openModal(p);
-    el.querySelector('.add').onclick=e=>{addCart(p.id);e.currentTarget.className='add done';e.currentTarget.textContent='✓ En el pedido'};
-    grid.appendChild(el);
-  });
-  document.getElementById('empty').hidden=list.length>0;
-}
-q.addEventListener('input',render);
-
-/* Modal */
-const modal=document.getElementById('modal');let cur=null;
-function openModal(p){cur=p;document.getElementById('mImg').src=p.img;document.getElementById('mImg').alt=p.n;document.getElementById('mCat').textContent=p.c;document.getElementById('mName').textContent=p.n;document.getElementById('mDesc').textContent=p.d;
-  document.getElementById('mSpecs').innerHTML=p.s.map(x=>`<li>✓ ${x}</li>`).join('');document.getElementById('mWA').href=waUrl('Hola Tecno Center, me interesa: '+p.n+'. ¿Precio y disponibilidad?');modal.classList.add('on')}
-document.getElementById('modalX').onclick=()=>modal.classList.remove('on');
-modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('on')});
-document.getElementById('mAdd').onclick=()=>{addCart(cur.id);modal.classList.remove('on');render()};
-
-/* Carrito */
-let cart={};try{cart=JSON.parse(localStorage.getItem('tc_cart')||'{}')}catch(e){}
-const drawer=document.getElementById('drawer'),scrim=document.getElementById('scrim');
-function save(){try{localStorage.setItem('tc_cart',JSON.stringify(cart))}catch(e){}}
-function toast(t){let el=document.querySelector('.toast');if(!el){el=document.createElement('div');el.className='toast';document.body.appendChild(el)}el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),1800)}
-function addCart(id){cart[id]=(cart[id]||0)+1;save();drawCart();const b=document.getElementById('cartOpen');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');toast('✓ Agregado a tu pedido')}
-function drawCart(){
-  const ids=Object.keys(cart).filter(k=>cart[k]>0);document.getElementById('cartCount').textContent=ids.reduce((a,k)=>a+cart[k],0);
-  const L=document.getElementById('cartList');
-  if(!ids.length){L.innerHTML='<p class="dr-empty">Tu pedido está vacío.<br>Agrega productos desde el catálogo 🛍️</p>';return}
-  L.innerHTML='';ids.forEach(id=>{const p=PRODUCTS.find(x=>x.id===id);if(!p)return;const r=document.createElement('div');r.className='ci';
-    r.innerHTML=`<img src="${p.img}" alt=""><div>${p.n}</div><div class="qty"><button aria-label="Menos">−</button><b>${cart[id]}</b><button aria-label="Más">+</button></div>`;
-    const [m,pl]=r.querySelectorAll('button');m.onclick=()=>{cart[id]--;if(cart[id]<=0)delete cart[id];save();drawCart();render()};pl.onclick=()=>{cart[id]++;save();drawCart()};L.appendChild(r)});
-}
-function openCart(){drawer.classList.add('on');scrim.classList.add('on')}
-function closeCart(){drawer.classList.remove('on');scrim.classList.remove('on')}
-document.getElementById('cartOpen').onclick=openCart;document.getElementById('cartClose').onclick=closeCart;scrim.onclick=closeCart;
-document.getElementById('cartSend').onclick=()=>{
-  const ids=Object.keys(cart).filter(k=>cart[k]>0);if(!ids.length){toast('Agrega al menos un producto');return}
-  const name=document.getElementById('cName').value.trim();
-  const lines=ids.map(id=>`• ${cart[id]} x ${PRODUCTS.find(p=>p.id===id).n}`).join('\n');
-  const msg=`Hola Tecno Center 👋 Quiero hacer este pedido:\n\n${lines}\n\n${document.getElementById('cCred').checked?'💳 Lo quiero A CRÉDITO\n':''}${name?'Mi nombre: '+name+'\n':''}¿Me confirman precio y disponibilidad?`;
-  const a=document.createElement('a');a.href=waUrl(msg);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
-};
-drawCart();render();
-
-/* Hero showcase */
-(function(){
-  let items=PRODUCTS.filter(p=>p.hero);if(!items.length)items=PRODUCTS.slice(0,4);conststage=document.getElementById('stage'),dots=document.getElementById('showDots');let i=0,timer;
-  items.forEach((p,k)=>{const im=document.createElement('img');im.src=p.img;im.alt=p.n;if(k>0)im.loading='lazy';stage.appendChild(im);
-    const d=document.createElement('button');d.setAttribute('aria-label',p.n);d.onclick=()=>{go(k);restart()};dots.appendChild(d)});
-  function go(k){i=k;[...stage.children].forEach((im,j)=>im.classList.toggle('on',j===k));[...dots.children].forEach((d,j)=>d.classList.toggle('on',j===k));
-    document.getElementById('showName').textContent=items[k].n;document.getElementById('showTag').textContent=items[k].s[0]}
-  function restart(){clearInterval(timer);timer=setInterval(()=>go((i+1)%items.length),3800)}
-  stage.onclick=()=>openModal(items[i]);stage.style.cursor='pointer';
-  go(0);restart();
-})();
-
 /* Menú móvil */
 document.getElementById('burger').onclick=()=>document.getElementById('menu').classList.toggle('open');
 document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>document.getElementById('menu').classList.remove('open'));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){modal.classList.remove('on');closeCart()}});
+
 
 </script>
 </body>
