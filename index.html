@@ -846,7 +846,7 @@ const rules=[
   [/d[oó]nde|direcci|ubica|llegar|horario|abren|cierran/i,ubicacion],
   [/asesor|humano|persona|llamar|whats/i,asesor],
   [/cargador|cable|aud[ií]fono|parlante|forro|vidrio|consola|dron|radio|reloj|ventilador|plancha|precio|cu[aá]nto|vale|tienen/i,productos],
-  [/iphone|samsung|galaxy|redmi|xiaomi|celular|tel[eé]fono|tablet|lenovo|cat[aá]logo|dron|cabina|karaoke|gedi|reloj|watch|alexa|echo|bose|infinix|power ?bank|aro|c[aá]mara|proyector|hot ?70|jbl|playstation|ps ?\d|control|vidrio|pad|honor|airtag|estuche|afeitadora/i,catalogo],
+  [/iphone|samsung|galaxy|redmi|xiaomi|celular|tel[eé]fono|tablet|lenovo|cat[aá]logo|dron|cabina|karaoke|gedi|reloj|watch|alexa|echo|bose|infinix|power ?bank|aro|c[aá]mara|proyector|hot ?70|jbl|playstation|ps ?\d|control|vidrio|pad|honor|airtag|estuche|afeitadora|zte|radio|consola|parrilla|barber|smartwatch/i,catalogo],
   [/hola|buen(as|os)|saludo/i,menu],
 ];
 document.getElementById('botForm').addEventListener('submit',e=>{
@@ -867,6 +867,14 @@ setTimeout(()=>hint.classList.remove('show'),12000);
 
 /* ===== Catálogo ===== */
 const PRODUCTS=[
+ {id:'ipmaxreal',n:'iPhone Pro Max · foto real',c:'Celulares',img:'img/p/iphone-promax-real.jpg',d:'Foto real tomada en el local. Pregunta por modelo, memoria y precio.',s:['Disponible en el local','Pregunta por estado y garantía'],t:['A crédito']},
+ {id:'zte',n:'Celular ZTE',c:'Celulares',img:'img/p/zte.jpg',d:'Económico, con doble cámara y pantalla amplia.',s:['Color verde agua','Pregunta por memoria y precio'],t:['A crédito','Económico']},
+ {id:'hw18',n:'Smartwatch Howear HW18 Pro+',c:'Smart y hogar',img:'img/p/howear-hw18.jpg',d:'Conectado contigo, siempre.',s:['Llamadas Bluetooth','Monitor de salud y modos deportivos','Hasta 7 días de batería · Android / iOS'],t:['Nuevo']},
+ {id:'r36s',n:'Consola portátil R36S 64GB',c:'Gadgets',img:'img/p/consola-r36s.jpg',d:'Revive los mejores juegos clásicos donde quieras.',s:['64GB · miles de juegos','Pantalla HD a color 640×480','Ranura TF · batería de larga duración'],t:['Top']},
+ {id:'beckradio',n:'Radio vintage Beck Play BP-RV109BT',c:'Audio',img:'img/p/radio-beckplay.jpg',d:'Clásico por fuera, moderno por dentro.',s:['Bluetooth · USB · TF','Radio FM / AM / SW','Batería recargable 18650'],t:[]},
+ {id:'yuegan',n:'Radio retro Yuegan YG-1085 mini',c:'Audio',img:'img/p/radio-yuegan.jpg',d:'Estilo vintage con luz LED ambiental.',s:['Bluetooth 5.0 · USB · Micro SD','Radio FM / AM / SW','Hasta 6 h de batería'],t:['Nuevo']},
+ {id:'sokany',n:'Parrilla Raclette Sokany SK-08139',c:'Hogar',img:'img/p/sokany-grill.jpg',d:'El centro de tus reuniones: asa y gratina en la mesa.',s:['1600W','8 sartenes individuales','Antiadherente · calor uniforme'],t:['Nuevo']},
+ {id:'vgrbarber',n:'Combo barbero VGR Super Trim V-699 & 971',c:'Hogar',img:'img/p/vgr-barber.jpg',d:'Potencia, precisión y estilo en cada corte.',s:['Cuchillas de titanio','Pantalla LED · carga USB','Incluye peines guía'],t:['Top']},
  {id:'magic7',n:'Honor Magic7 Lite 5G',c:'Celulares',img:'img/p/honor-magic7lite.jpg',d:'Resistencia que te acompaña, potencia que te impulsa.',s:['Pantalla AMOLED curva 6.78" FHD+','Cámara 108MP · batería 6600mAh','Carga rápida 66W · Snapdragon 6 Gen 1','Resistencia 360° certificada'],t:['A crédito','Nuevo']},
  {id:'x6c',n:'Honor X6c',c:'Celulares',img:'img/p/honor-x6c.jpg',d:'Batería de larga duración y gran almacenamiento.',s:['Pantalla 6.61" HD+','Cámara 50MP · batería 5200mAh','6GB RAM + 128GB'],t:['A crédito']},
  {id:'play10',n:'Honor Play10',c:'Celulares',img:'img/p/honor-play10.jpg',d:'Más memoria, más experiencia.',s:['64GB y 128GB','Batería de larga duración'],t:['A crédito','Económico']},
