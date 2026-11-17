@@ -156,6 +156,32 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.82);backdrop-fi
 .cm span{color:var(--mut);font-size:.84rem}
 @media(max-width:900px){.split{grid-template-columns:1fr}.subs-grid{grid-template-columns:1fr 1fr}}
 
+
+.calc{margin-top:20px;background:#fff;color:#0b1230;border-radius:20px;padding:20px;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.calc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.calc-top b{font-size:1.05rem}.calc-top span{font-size:.85rem;color:#3b4570}
+.calc label{font-size:.82rem;font-weight:700;color:#3b4570}
+.calc-in{display:flex;align-items:center;gap:8px;border:2px solid #d6dcf0;border-radius:14px;padding:.4rem .9rem;margin-top:6px}
+.calc-in:focus-within{border-color:var(--blue)}
+.calc-in input{flex:1;border:0;outline:0;font:800 1.6rem Inter,sans-serif;color:#0b1230;min-width:0;background:transparent}
+.calc-in span{font-weight:700;color:#6b7699}
+.calc-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.calc-out>div{background:#f1f4ff;border-radius:14px;padding:12px}
+.calc-out small{display:block;font-size:.75rem;color:#5b6690;font-weight:600}
+.calc-out b{display:block;font-size:1.35rem;margin:.15rem 0;color:#0a3fb0}
+.chips-q{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips-q button{border:1.5px solid #d6dcf0;background:#fff;border-radius:999px;padding:.35rem .7rem;font:600 .8rem Inter,sans-serif;cursor:pointer;color:#0b1230}
+.chips-q button:hover{border-color:var(--blue)}
+.calc .form-note{color:#5b6690}
+.vz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.vzc{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.vzc img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:top}
+.vzc>div{padding:16px 18px 18px}
+.vzc h3{font-family:Inter;font-weight:800;font-size:1.08rem;margin-bottom:.3rem}
+.vzc p{color:var(--mut);font-size:.9rem}
+.vzc a{display:inline-block;margin-top:.6rem;color:var(--wa);font-weight:700}
+@media(max-width:900px){.vz-grid{grid-template-columns:1fr}}
+
 /* products */
 .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .pr{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
@@ -446,19 +472,38 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
 
 <!-- GIROS -->
 <section id="giros" class="vz">
-  <div class="wrap split">
-    <img class="reveal" src="img/giros.jpg" alt="Cambios Los Chamos: giros a Venezuela" loading="lazy">
-    <div class="reveal">
-      <span class="eyebrow">Cambios Los Chamos</span>
-      <h2 style="margin:.6rem 0 .8rem">Giros a Venezuela 🇻🇪</h2>
-      <p class="lead">Envía dinero a tu familia en Venezuela de forma <b>rápida y confiable</b>, aquí mismo en Tecno Center.</p>
-      <p style="margin-top:18px;font-weight:700">Llega a los principales bancos de Venezuela:</p>
-      <div class="banks"><span class="bank">Banco de Venezuela</span><span class="bank">Banesco</span><span class="bank">Mercantil</span><span class="bank">BBVA Provincial</span><span class="bank">Banco Exterior</span><span class="bank">BNC</span><span class="bank">BOD</span></div>
-      <p style="margin-top:14px;font-weight:700">Puedes pagar en Colombia por:</p>
-      <div class="banks"><span class="bank y">Bancolombia</span><span class="bank y">Nequi</span><span class="bank y">Efecty</span><span class="bank y">SuperGIROS</span><span class="bank y">Gane</span><span class="bank y">Apostar</span></div>
-      <div style="display:flex;flex-wrap:wrap;gap:.7rem;margin-top:22px">
-        <a class="btn btn-wa wa-link" data-msg="Hola, quiero hacer un giro a Venezuela. ¿A cómo está la tasa hoy?" href="#"><svg class="ico"><use href="#wa"/></svg>Consultar tasa de hoy</a>
+  <div class="wrap">
+    <div class="split">
+      <img class="reveal" src="img/giros-flyer.jpg" alt="Cambios Los Chamos: giros a Venezuela en Tecno Center, Calle 64 # 16-42 Capilla" loading="lazy">
+      <div class="reveal">
+        <span class="eyebrow">Cambios Los Chamos · en Tecno Center</span>
+        <h2 style="margin:.6rem 0 .8rem">Giros y envíos a Venezuela 🇻🇪</h2>
+        <p class="lead">Envía dinero a tu familia de forma <b>rápida y confiable</b>. Te atendemos en la <b>Calle 64 # 16-42, Capilla</b>.</p>
+
+        <div class="calc">
+          <div class="calc-top"><b>Calculadora de giros</b><span>Tasa del <span id="tDate"></span>: <b id="tRate"></b></span></div>
+          <label for="cop">¿Cuántos pesos vas a enviar?</label>
+          <div class="calc-in"><span>$</span><input id="cop" inputmode="numeric" value="100.000" aria-label="Pesos colombianos"><span>COP</span></div>
+          <div class="calc-out">
+            <div><small>Recibe en Venezuela</small><b id="bs">—</b><small>Bolívares</small></div>
+            <div><small>Equivale a (BCV)</small><b id="usd">—</b><small>Dólares</small></div>
+          </div>
+          <div class="chips-q" id="quick"></div>
+          <a class="btn btn-wa" id="calcWA" href="#" target="_blank" rel="noopener" style="width:100%;margin-top:12px"><svg class="ico"><use href="#wa"/></svg>Hacer este giro por WhatsApp</a>
+          <p class="form-note">La tasa cambia todos los días. Confírmala por WhatsApp antes de enviar.</p>
+        </div>
       </div>
+    </div>
+
+    <p style="margin-top:34px;font-weight:700" class="reveal">Llega a los bancos de Venezuela:</p>
+    <div class="banks reveal"><span class="bank">Banco de Venezuela</span><span class="bank">Banesco</span><span class="bank">Mercantil</span><span class="bank">BBVA Provincial</span><span class="bank">BNC</span><span class="bank">Banco Exterior</span><span class="bank">BOD</span></div>
+    <p style="margin-top:14px;font-weight:700" class="reveal">Recibimos tu pago por:</p>
+    <div class="banks reveal"><span class="bank y">Bancolombia</span><span class="bank y">Nequi</span><span class="bank y">Davivienda</span><span class="bank y">Efecty</span><span class="bank y">SuperGIROS</span><span class="bank y">Gane</span><span class="bank y">Apostar</span><span class="bank y">Western Union</span><span class="bank y">PayPal</span></div>
+
+    <div class="vz-grid reveal">
+      <div class="vzc"><img src="img/recargas-vzla.jpg" alt="Recargas de líneas celulares de Venezuela" loading="lazy"><div><h3>Recargas a Venezuela 📱</h3><p>Recarga líneas <b>Movistar, Digitel y Movilnet</b> desde aquí.</p><a class="wa-link" data-msg="Hola, quiero hacer una recarga a una línea de Venezuela" href="#">Pedir recarga →</a></div></div>
+      <div class="vzc"><img src="img/productos-vzla.jpg" alt="Productos de Venezuela" loading="lazy"><div><h3>Productos de Venezuela 🫓</h3><p>¡Sabores que nos hacen sentir en casa! Mavesa, Rikesa, Maltín, Samba, Galak, Diablitos y más.</p><a class="wa-link" data-msg="Hola, ¿qué productos de Venezuela tienen disponibles?" href="#">Ver disponibles →</a></div></div>
+      <div class="vzc"><img src="img/giros-abrimos.jpg" alt="Cambios Los Chamos ya abrió" loading="lazy"><div><h3>¡Ya abrimos! 🎉</h3><p>Cambios Los Chamos ahora en Tecno Center, barrio Capilla, Dosquebradas.</p><a class="wa-link" data-msg="Hola, quiero hacer un giro a Venezuela. ¿A cómo está la tasa hoy?" href="#">Consultar tasa →</a></div></div>
     </div>
   </div>
 </section>
@@ -477,8 +522,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
         <div class="cm"><b>🤖 IA y productividad</b><span>ChatGPT Plus, Gemini, Microsoft 365, Duolingo</span></div>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:.7rem">
-        <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, quiero información de las cuentas y suscripciones digitales" href="#"><svg class="ico"><use href="#wa"/></svg>321 871 4191</a>
-        <a class="btn btn-wa wa-link2" data-msg="Hola Tecno Center, quiero información de las cuentas y suscripciones digitales" href="#"><svg class="ico"><use href="#wa"/></svg>302 482 7413</a>
+        <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, quiero información de las cuentas y suscripciones digitales" href="#"><svg class="ico"><use href="#wa"/></svg>Pedir mi cuenta · 321 871 4191</a>
       </div>
     </div>
     <div class="subs-grid reveal">
@@ -637,7 +681,6 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
 const WA='573218714191';
 const waUrl=m=>'https://wa.me/'+WA+'?text='+encodeURIComponent(m);
 document.querySelectorAll('.wa-link').forEach(a=>{a.href=waUrl(a.dataset.msg||'Hola Tecno Center');a.target='_blank';a.rel='noopener'});
-document.querySelectorAll('.wa-link2').forEach(a=>{a.href='https://wa.me/573024827413?text='+encodeURIComponent(a.dataset.msg);a.target='_blank';a.rel='noopener'});
 document.getElementById('yr').textContent=new Date().getFullYear();
 
 document.getElementById('credForm').addEventListener('submit',e=>{
@@ -661,6 +704,21 @@ lb.addEventListener('click',()=>lb.classList.remove('on'));
 
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+
+/* Calculadora giros: actualizar TASA y FECHA cada día */
+(function(){
+const TASA=3.47, BCV=915.74, FECHA='17 nov 2026';
+const $=id=>document.getElementById(id), fmt=(n,d=2)=>n.toLocaleString('es-CO',{minimumFractionDigits:d,maximumFractionDigits:d});
+$('tDate').textContent=FECHA;$('tRate').textContent=fmt(TASA);
+const inp=$('cop');
+function calc(){const cop=parseInt(inp.value.replace(/\D/g,''))||0;inp.value=cop?cop.toLocaleString('es-CO'):'';
+  const bs=cop/TASA,usd=bs/BCV;$('bs').textContent=cop?'Bs '+fmt(bs):'—';$('usd').textContent=cop?'$ '+fmt(usd):'—';
+  $('calcWA').href=waUrl(`Hola, quiero hacer un giro a Venezuela 🇻🇪\n• Envío: $${cop.toLocaleString('es-CO')} COP\n• Recibe aprox.: Bs ${fmt(bs)} (tasa ${fmt(TASA)} del ${FECHA})\n¿Me confirman la tasa de hoy?`)}
+inp.addEventListener('input',calc);
+[20000,50000,100000,200000,500000].forEach(v=>{const b=document.createElement('button');b.type='button';b.textContent='$'+v.toLocaleString('es-CO');b.onclick=()=>{inp.value=v;calc()};$('quick').appendChild(b)});
+calc();
+})();
 
 /* ===== Asistente ===== */
 (function(){
@@ -742,7 +800,8 @@ async function recargas(){
 }
 async function giros(){
   await say('🇻🇪 Con <b>Cambios Los Chamos</b> envías dinero a Venezuela rápido y confiable: Banco de Venezuela, Banesco, Mercantil, Provincial, BNC y más.');
-  await say('Puedes pagar por Bancolombia, Nequi, Efecty, SuperGIROS, Gane o Apostar. ¿Te consulto la tasa de hoy?');
+  await say('Pagas por Bancolombia, Nequi, Davivienda, Efecty, SuperGIROS, Gane, Apostar, Western Union o PayPal. También hacemos <b>recargas a Movistar, Digitel y Movilnet</b> y tenemos <b>productos venezolanos</b> 🫓');
+  await say('En la página tienes una <a href="#giros">calculadora de giros</a>. ¿Te consulto la tasa de hoy?');
   chips([toWA('💱 Consultar tasa de hoy','Hola, quiero hacer un giro a Venezuela. ¿A cómo está la tasa hoy?'),back]);
 }
 async function pagos(){
@@ -761,7 +820,7 @@ let awaiting=null;
 const rules=[
   [/cr[eé]dit|financ|cuota|report|ppt|addi|sistecr|payjoy|brilla/i,credito],
   [/repar|pantalla|t[eé]cnic|da[ñn]|bater|no (prende|carga)|desbloq|software/i,tecnico],
-  [/giro|venezuela|bol[ií]var|tasa|cambio|chamo/i,giros],
+  [/giro|venezuela|bol[ií]var|tasa|cambio|chamo|digitel|movilnet|mavesa|harina pan/i,giros],
   [/recarg|paquete|netflix|disney|prime|cuenta|plataforma|claro|tigo|movistar|spotify|canva|chatgpt|youtube|suscrip/i,recargas],
   [/pag|nequi|daviplata|tarjeta|transfer|bre-?b|llave|qr/i,pagos],
   [/d[oó]nde|direcci|ubica|llegar|horario|abren|cierran/i,ubicacion],
