@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecno Center · Dosquebradas</title>
+<meta name="description" content="Tecno Center en Capilla, Dosquebradas: todo a crédito (celulares, motos, electrodomésticos, muebles, herramientas), servicio técnico, accesorios, recargas y corresponsal Bancolombia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b1a; --bg2:#0d1430; --card:#111a3d; --line:#22305f;
+  --blue:#1e7bff; --cyan:#22d3ee; --red:#ef233c; --yellow:#ffd60a;
+  --txt:#eef2ff; --mut:#a5b0d6; --wa:#25d366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92%);margin:auto}
+h1,h2,h3,.disp{font-family:"Archivo Black",Inter,sans-serif;letter-spacing:-.01em;line-height:1.08}
+h2{font-size:clamp(1.8rem,4.2vw,2.8rem)}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--red)}
+.lead{color:var(--mut);font-size:1.06rem;max-width:62ch}
+section{padding:84px 0}
+.sec-head{display:flex;flex-direction:column;gap:.8rem;margin-bottom:40px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.95rem 1.4rem;border-radius:999px;font-weight:700;font-size:.98rem;border:0;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:#05210f;box-shadow:0 10px 30px -10px rgba(37,211,102,.6)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 30px -10px rgba(239,35,60,.65)}
+.btn-ghost{border:1.5px solid var(--line);color:var(--txt);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--blue)}
+.ico{width:20px;height:20px;flex:none}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(34,48,95,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:1rem}
+.logo{display:flex;align-items:center;gap:.65rem}
+.logo-mark{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--blue),#0a3fb0);display:grid;place-items:center;font-family:"Archivo Black";font-size:1rem;position:relative;box-shadow:0 6px 18px -6px rgba(30,123,255,.8)}
+.logo-mark span{color:var(--red);}
+.logo-txt{font-family:"Archivo Black";font-size:1.25rem;letter-spacing:-.02em}
+.logo-txt b{color:var(--red);font-weight:400}
+.logo-sub{display:block;font-family:Inter;font-size:.64rem;font-weight:600;letter-spacing:.16em;color:var(--mut);text-transform:uppercase;margin-top:-2px}
+.menu{display:flex;gap:1.6rem;font-weight:600;font-size:.92rem;color:var(--mut)}
+.menu a:hover{color:var(--txt)}
+.nav .btn{padding:.6rem 1.05rem;font-size:.88rem}
+@media(max-width:900px){.menu{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 80px}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:720px;height:720px;background:radial-gradient(circle,rgba(30,123,255,.35),transparent 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-200px;bottom:-260px;width:600px;height:600px;background:radial-gradient(circle,rgba(239,35,60,.22),transparent 62%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,214,10,.1);color:var(--yellow);border:1px solid rgba(255,214,10,.35);padding:.42rem .85rem;border-radius:999px;font-size:.8rem;font-weight:700}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 4px rgba(255,214,10,.2);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,214,10,0)}}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.7rem);margin:1.1rem 0 1rem}
+.hero h1 .hl{background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .red{color:var(--red)}
+.hero .lead{font-size:1.14rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.8rem 0 1.6rem}
+.checks{display:flex;flex-wrap:wrap;gap:.6rem}
+.check{display:inline-flex;align-items:center;gap:.45rem;background:var(--card);border:1px solid var(--line);padding:.48rem .8rem;border-radius:10px;font-size:.86rem;font-weight:600}
+.check svg{width:16px;height:16px;color:var(--wa)}
+.hero-img{position:relative}
+.hero-img img{border-radius:22px;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(0,0,0,.8);max-height:640px;width:100%;object-fit:cover;object-position:top}
+.float-card{position:absolute;background:#fff;color:#0b1230;border-radius:16px;padding:.8rem 1rem;box-shadow:0 20px 40px -15px rgba(0,0,0,.6);font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:.6rem}
+.float-card small{display:block;font-weight:500;color:#5b6690;font-size:.74rem}
+.fc1{left:-26px;bottom:60px}
+.fc2{right:-18px;top:34px}
+.fc-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:1.2rem}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.fc1{left:10px}.fc2{right:10px}}
+
+/* marquee */
+.ticker{background:var(--red);overflow:hidden;white-space:nowrap;border-block:1px solid rgba(255,255,255,.15)}
+.ticker-in{display:inline-flex;gap:2.4rem;padding:.85rem 0;animation:scroll 32s linear infinite;font-family:"Archivo Black";font-size:1rem;text-transform:uppercase}
+.ticker-in span{display:inline-flex;align-items:center;gap:2.4rem}
+.ticker-in span::after{content:"✦";color:var(--yellow)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* credit categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.cat{background:linear-gradient(180deg,var(--card),#0c1434);border:1px solid var(--line);border-radius:18px;padding:22px 18px;display:flex;flex-direction:column;gap:.7rem;transition:border-color .2s,transform .2s}
+.cat:hover{border-color:var(--blue);transform:translateY(-3px)}
+.cat .em{font-size:2rem;line-height:1}
+.cat h3{font-family:Inter;font-weight:800;font-size:1rem}
+.cat p{color:var(--mut);font-size:.84rem;line-height:1.4}
+.cat-more{background:linear-gradient(135deg,var(--blue),#0a3fb0);border-color:transparent}
+.cat-more p{color:#dbe6ff}
+
+/* who applies */
+.apply{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ap{border-radius:16px;padding:18px;display:flex;gap:.8rem;align-items:center;background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.28);font-weight:700}
+.ap svg{width:26px;height:26px;color:var(--wa);flex:none}
+.ap small{display:block;font-weight:500;color:var(--mut);font-size:.8rem}
+@media(max-width:900px){.apply{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.apply{grid-template-columns:1fr}}
+
+/* steps */
+.steps-sec{background:var(--bg2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 24px 26px}
+.step::before{counter-increment:s;content:"0" counter(s);font-family:"Archivo Black";font-size:3rem;color:transparent;-webkit-text-stroke:1.5px var(--blue);position:absolute;top:14px;right:20px;opacity:.7}
+.step h3{font-family:Inter;font-weight:800;font-size:1.15rem;margin-bottom:.5rem;padding-right:60px}
+.step p{color:var(--mut);font-size:.94rem}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* allies */
+.allies{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.ally{background:#fff;color:#0b1230;padding:.65rem 1.1rem;border-radius:12px;font-weight:800;font-size:.95rem;letter-spacing:-.01em}
+.ally.alt{background:var(--card);color:var(--txt);border:1px solid var(--line)}
+
+/* form */
+.form-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:start;margin-top:56px}
+.form-card{background:linear-gradient(160deg,#122059,#0d1430 60%);border:1px solid var(--line);border-radius:24px;padding:30px}
+.form-card h3{font-size:1.6rem;margin-bottom:.4rem}
+.form-card .lead{font-size:.95rem;margin-bottom:1.3rem}
+.field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:14px}
+.field label{font-size:.82rem;font-weight:700;color:var(--mut)}
+.field input,.field select,.field textarea{background:#0a1029;border:1.5px solid var(--line);color:var(--txt);border-radius:12px;padding:.85rem .95rem;font:inherit;font-size:.97rem;outline:none;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-note{font-size:.78rem;color:var(--mut);margin-top:10px}
+.form-side img{border-radius:22px;border:1px solid var(--line)}
+@media(max-width:900px){.form-wrap{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sv{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:.6rem}
+.sv .em{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:1.6rem;background:rgba(30,123,255,.14);margin-bottom:.4rem}
+.sv h3{font-family:Inter;font-weight:800;font-size:1.12rem}
+.sv p{color:var(--mut);font-size:.92rem}
+.sv.feat{grid-column:span 2;flex-direction:row;align-items:center;gap:24px;background:linear-gradient(120deg,#ffd60a,#ffb703);color:#1b1500;border:0}
+.sv.feat p{color:#3a2e00}
+.sv.feat .em{background:rgba(0,0,0,.08)}
+@media(max-width:900px){.svc{grid-template-columns:1fr}.sv.feat{grid-column:auto;flex-direction:column;align-items:flex-start}}
+
+/* products */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pr{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.pr:hover{transform:translateY(-4px);border-color:var(--blue)}
+.pr .ph{aspect-ratio:4/3.4;overflow:hidden;background:#000}
+.pr .ph img,.pr .ph video{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pr:hover .ph img{transform:scale(1.05)}
+.pr .bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.tag{align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);background:rgba(34,211,238,.1);padding:.25rem .55rem;border-radius:6px}
+.pr h3{font-family:Inter;font-weight:800;font-size:1.1rem}
+.pr p{color:var(--mut);font-size:.9rem;flex:1}
+.pr a{margin-top:.6rem;align-self:flex-start;color:var(--wa);font-weight:700;font-size:.9rem;display:inline-flex;gap:.4rem;align-items:center}
+.pr a:hover{text-decoration:underline}
+@media(max-width:900px){.prods{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.prods{grid-template-columns:1fr}}
+
+
+/* videos */
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vd{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.vd video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.vd .bd{padding:14px 16px 16px}
+.vd h3{font-family:Inter;font-weight:800;font-size:1rem}
+.vd p{color:var(--mut);font-size:.85rem;margin-top:.2rem}
+@media(max-width:900px){.vids{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.vids{grid-template-columns:1fr;max-width:340px;margin:auto}}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px;grid-auto-flow:dense}
+.gal figure{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);cursor:zoom-in}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.06)}
+.gal .w2{grid-column:span 2}.gal .h2{grid-row:span 2}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}}
+.lb{position:fixed;inset:0;background:rgba(3,6,15,.94);display:none;place-items:center;z-index:100;padding:20px;cursor:zoom-out}
+.lb.on{display:grid}
+.lb img{max-height:92vh;border-radius:12px}
+
+/* payments */
+.pay{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}
+.pay-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pm{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center;font-weight:700;font-size:.92rem;display:flex;flex-direction:column;gap:.4rem;align-items:center}
+.pm .em{font-size:1.6rem}
+.breb{background:linear-gradient(150deg,#14254f,#0b1230);border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:.7rem}
+.key{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;color:#0b1230;border-radius:14px;padding:.85rem 1rem;font-weight:800;font-size:1.15rem}
+.key button{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:.5rem .85rem;font-weight:700;cursor:pointer;font-family:inherit}
+@media(max-width:900px){.pay{grid-template-columns:1fr}.pay-list{grid-template-columns:1fr 1fr}}
+
+
+.paygrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.paycard{border:1px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:.75rem}
+.pc-online{background:linear-gradient(150deg,#3a0d18,#0d1430 70%)}
+.pc-breb{background:linear-gradient(150deg,#14254f,#0b1230)}
+.paycard h3{font-size:1.6rem}
+.paycard p{color:var(--mut);font-size:.95rem}
+.pay-btn{font-size:1.1rem;padding:1.05rem 1.4rem}
+.qrbox{margin-top:auto;display:flex;align-items:center;gap:14px;background:#fff;border-radius:16px;padding:12px;color:#0b1230}
+.qrbox img{width:130px;height:130px;image-rendering:pixelated;flex:none}
+.qrbox small{font-weight:600;font-size:.85rem;color:#3b4570}
+.pay-list{grid-template-columns:repeat(6,1fr)!important}
+.pc-breb .qrbox img{width:180px;height:180px}
+@media(max-width:900px){.paygrid{grid-template-columns:1fr}.pay-list{grid-template-columns:repeat(3,1fr)!important}}
+
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.loc-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:1.1rem}
+.li{display:flex;gap:.9rem;align-items:flex-start}
+.li .em{width:46px;height:46px;border-radius:12px;background:rgba(239,35,60,.14);display:grid;place-items:center;font-size:1.3rem;flex:none}
+.li b{display:block;font-size:1.05rem}
+.li span{color:var(--mut);font-size:.92rem}
+.loc img{border-radius:24px;border:1px solid var(--line)}
+@media(max-width:900px){.loc{grid-template-columns:1fr}}
+
+/* cta band */
+.band{background:linear-gradient(110deg,var(--blue),#0a3fb0 55%,#5b0d1d);border-radius:28px;padding:48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.band h2{max-width:20ch}
+.band p{color:#dbe6ff;margin-top:.5rem}
+
+footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);font-size:.88rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:62px;height:62px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 14px 34px -8px rgba(37,211,102,.75);animation:bob 2.6s ease-in-out infinite}
+.wa-float svg{width:32px;height:32px;color:#fff}
+@keyframes bob{50%{transform:translateY(-5px)}}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.03-17.46A11.27 11.27 0 0 0 12.05.72C5.79.72.7 5.8.7 12.06c0 2 .52 3.95 1.52 5.67L.6 23.6l6-1.57a11.3 11.3 0 0 0 5.44 1.39h.01c6.25 0 11.34-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02"/></symbol>
+  <symbol id="ok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="Tecno Center inicio">
+      <div class="logo-mark">T<span>C</span></div>
+      <div><div class="logo-txt">Tecno <b>C</b>enter</div><span class="logo-sub">Capilla · Dosquebradas</span></div>
+    </a>
+    <nav class="menu">
+      <a href="#credito">Crédito</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#productos">Productos</a>
+      <a href="#videos">Videos</a>
+      <a href="#pagos">Pagos</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+    <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, quiero información" href="#"><svg class="ico"><use href="#wa"/></svg>Escríbenos</a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="badge"><span class="dot"></span>Nuevo: sistema de crédito para todo</span>
+      <h1>Lo que necesitas,<br><span class="hl">llévatelo hoy</span><br><span class="red">a crédito.</span></h1>
+      <p class="lead">Celulares, computadores, neveras, televisores, motos, muebles, camas, herramientas, guadañas, ventiladores y mucho más. Te ayudamos a estrenar con cuotas que se ajustan a ti.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="#solicitar">Solicitar mi crédito</a>
+        <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, quiero saber cómo sacar un producto a crédito" href="#"><svg class="ico"><use href="#wa"/></svg>321 871 4191</a>
+      </div>
+      <div class="checks">
+        <span class="check"><svg><use href="#ok"/></svg>Aplica para reportados</span>
+        <span class="check"><svg><use href="#ok"/></svg>Venezolanos con PPT</span>
+        <span class="check"><svg><use href="#ok"/></svg>Propietarios y arrendatarios</span>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <img src="img/credito.jpg" alt="Tecno Center: celulares, computadores y electrodomésticos a crédito">
+      <div class="float-card fc2"><div class="fc-ic" style="background:#e8f0ff">🏍️</div><div>Motos a crédito<small>Llévala con cuotas</small></div></div>
+      <div class="float-card fc1"><div class="fc-ic" style="background:#e9fbef">✅</div><div>Respuesta rápida<small>Por WhatsApp</small></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-in">
+    <span>Celulares</span><span>Motos</span><span>Neveras</span><span>Televisores</span><span>Salas y muebles</span><span>Camas</span><span>Herramientas</span><span>Guadañas</span><span>Computadores</span><span>Materiales de construcción</span><span>Ventiladores</span>
+    <span>Celulares</span><span>Motos</span><span>Neveras</span><span>Televisores</span><span>Salas y muebles</span><span>Camas</span><span>Herramientas</span><span>Guadañas</span><span>Computadores</span><span>Materiales de construcción</span><span>Ventiladores</span>
+  </div>
+</div>
+
+<!-- CREDITO -->
+<section id="credito">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Todo a crédito</span>
+      <h2>Tú lo imaginas,<br>nosotros te lo financiamos.</h2>
+      <p class="lead">En alianza con las principales financieras del país, en Tecno Center puedes sacar a crédito prácticamente cualquier cosa para tu casa, tu trabajo o tu negocio.</p>
+    </div>
+    <div class="cats reveal">
+      <div class="cat"><div class="em">📱</div><h3>Celulares</h3><p>Todas las marcas y gamas.</p></div>
+      <div class="cat"><div class="em">🏍️</div><h3>Motos</h3><p>Para trabajar o moverte.</p></div>
+      <div class="cat"><div class="em">🧊</div><h3>Neveras</h3><p>Y lavadoras, estufas, hornos.</p></div>
+      <div class="cat"><div class="em">📺</div><h3>Televisores</h3><p>Smart TV de todos los tamaños.</p></div>
+      <div class="cat"><div class="em">💻</div><h3>Computadores</h3><p>Portátiles y de escritorio.</p></div>
+      <div class="cat"><div class="em">🛋️</div><h3>Salas y muebles</h3><p>Renueva tu hogar.</p></div>
+      <div class="cat"><div class="em">🛏️</div><h3>Camas</h3><p>Camas, colchones y bases.</p></div>
+      <div class="cat"><div class="em">🛠️</div><h3>Herramientas</h3><p>Taladros, pulidoras y más.</p></div>
+      <div class="cat"><div class="em">🌿</div><h3>Guadañas</h3><p>Equipos para el campo.</p></div>
+      <div class="cat"><div class="em">🧱</div><h3>Construcción</h3><p>Materiales para tu obra.</p></div>
+      <div class="cat"><div class="em">🌀</div><h3>Ventiladores</h3><p>Y pequeños electrodomésticos.</p></div>
+      <div class="cat cat-more"><div class="em">✨</div><h3>¡Y lo que quieras!</h3><p>Pregúntanos por el producto que buscas.</p></div>
+    </div>
+
+    <div class="apply reveal">
+      <div class="ap"><svg><use href="#ok"/></svg><div>Reportados<small>También pueden aplicar</small></div></div>
+      <div class="ap"><svg><use href="#ok"/></svg><div>Venezolanos con PPT<small>Con permiso vigente</small></div></div>
+      <div class="ap"><svg><use href="#ok"/></svg><div>Propietarios<small>De vivienda</small></div></div>
+      <div class="ap"><svg><use href="#ok"/></svg><div>Arrendatarios<small>Si pagas arriendo, aplicas</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PASOS -->
+<section class="steps-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Así de fácil</span>
+      <h2>Tu crédito en 3 pasos</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><h3>Elige tu producto</h3><p>Dinos qué quieres: una moto, una nevera, una cama, una guadaña… lo que necesites.</p></div>
+      <div class="step"><h3>Escríbenos o visítanos</h3><p>Por WhatsApp o en el local de Capilla. Te decimos qué financiera se ajusta mejor a ti.</p></div>
+      <div class="step"><h3>Estrena</h3><p>Con tu crédito aprobado te llevas tu producto y lo pagas en cuotas cómodas.</p></div>
+    </div>
+
+    <div class="reveal" style="margin-top:44px">
+      <span class="eyebrow">Te financiamos con</span>
+      <div class="allies">
+        <span class="ally">Banco de Bogotá</span><span class="ally">Sistecrédito</span><span class="ally">PayJoy</span><span class="ally">Su+Pay</span><span class="ally">Addi</span><span class="ally">CHEC</span><span class="ally">Brilla</span><span class="ally">KrediYA</span>
+        <span class="ally alt">Aliado Giga Mayorista</span>
+      </div>
+    </div>
+
+    <div class="form-wrap" id="solicitar">
+      <div class="form-card reveal">
+        <h3>Solicita tu crédito</h3>
+        <p class="lead">Llena estos datos y se abre WhatsApp con tu solicitud lista para enviar.</p>
+        <form id="credForm" novalidate>
+          <div class="row2">
+            <div class="field"><label for="fn">Nombre</label><input id="fn" required placeholder="Tu nombre completo"></div>
+            <div class="field"><label for="fc">Municipio</label><input id="fc" placeholder="Ej: Dosquebradas"></div>
+          </div>
+          <div class="field"><label for="fp">¿Qué quieres sacar a crédito?</label>
+            <select id="fp">
+              <option>Celular</option><option>Moto</option><option>Nevera / lavadora</option><option>Televisor</option><option>Computador</option><option>Sala / muebles</option><option>Cama / colchón</option><option>Herramientas / guadaña</option><option>Materiales de construcción</option><option>Ventilador / electrodoméstico</option><option>Otro</option>
+            </select>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="fv">Vivienda</label>
+              <select id="fv"><option>Propietario</option><option>Arrendatario</option><option>Vivo con familia</option></select>
+            </div>
+            <div class="field"><label for="fr">¿Estás reportado?</label>
+              <select id="fr"><option>No</option><option>Sí</option><option>No sé</option></select>
+            </div>
+          </div>
+          <div class="field"><label for="fd">Detalles (opcional)</label><textarea id="fd" rows="3" placeholder="Marca, modelo, presupuesto…"></textarea></div>
+          <button class="btn btn-wa" type="submit" style="width:100%"><svg class="ico"><use href="#wa"/></svg>Enviar solicitud por WhatsApp</button>
+          <p class="form-note">Tus datos solo se usan para responder tu solicitud. La aprobación depende de cada financiera.</p>
+        </form>
+      </div>
+      <div class="form-side reveal">
+        <img src="img/aviso.jpg" alt="Aviso de Tecno Center en la entrada del local" style="max-height:620px;width:100%;object-fit:cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Mucho más que crédito</span>
+      <h2>Todo en un solo lugar</h2>
+      <p class="lead">Calidad y buen servicio para tu celular, tu casa y tu día a día.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="sv"><div class="em">🔧</div><h3>Servicio técnico</h3><p>Reparación de celulares Android y iPhone: pantallas, puertos de carga, baterías, software y más.</p></div>
+      <div class="sv"><div class="em">🎧</div><h3>Accesorios</h3><p>Cargadores, cables, audífonos, forros, vidrios templados, relojes y parlantes.</p></div>
+      <div class="sv"><div class="em">📶</div><h3>Recargas</h3><p>Recargas y paquetes para Claro, Tigo, Movistar, WOM y ETB.</p></div>
+      <div class="sv"><div class="em">🎬</div><h3>Cuentas de entretenimiento</h3><p>Tus plataformas de películas, series y deportes a buen precio.</p></div>
+      <div class="sv feat"><div class="em">🏦</div><div><h3>Corresponsal Bancolombia</h3><p>Haz retiros, depósitos y pagos de servicios sin ir al banco. Aquí mismo, en Capilla.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Destacados</span>
+      <h2>Productos que nuestros<br>clientes aman</h2>
+      <p class="lead">Pregunta por disponibilidad y precio. Muchos también los puedes sacar a crédito.</p>
+    </div>
+    <div class="prods">
+      <article class="pr reveal"><div class="ph"><img src="img/consola.jpg" alt="Consola portátil M18 Pro" loading="lazy"></div><div class="bd"><span class="tag">Gaming</span><h3>Consola M18 Pro</h3><p>Pantalla de 3.5", miles de juegos retro, dos controles inalámbricos y salida HDMI al televisor.</p><a class="wa-link" data-msg="Hola, me interesa la consola M18 Pro" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/audifonos.jpg" alt="Audífonos inalámbricos con cancelación de ruido" loading="lazy"></div><div class="bd"><span class="tag">Audio</span><h3>Audífonos inalámbricos Pro</h3><p>Cancelación de ruido activa, estuche de carga inalámbrica y sonido de alta calidad.</p><a class="wa-link" data-msg="Hola, me interesan los audífonos inalámbricos Pro" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><video src="img/parlantes.mp4" poster="img/parlantes-poster.jpg" muted loop playsinline autoplay controls></video></div><div class="bd"><span class="tag">Sonido</span><h3>Parlantes Sonivox</h3><p>Cabinas de alta potencia para fiestas, negocios y eventos. Varias referencias.</p><a class="wa-link" data-msg="Hola, me interesan los parlantes Sonivox" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/cargadores.jpg" alt="Cargadores y cables para iPhone" loading="lazy"></div><div class="bd"><span class="tag">Accesorios</span><h3>Cargadores y cables</h3><p>Carga rápida de 20W y 35W, cables USB‑C y Lightning para iPhone 11 al 17.</p><a class="wa-link" data-msg="Hola, necesito un cargador para mi celular" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/radios-drone.jpg" alt="Drones, radios retro y lámparas" loading="lazy"></div><div class="bd"><span class="tag">Regalos</span><h3>Drones, radios retro y lámparas</h3><p>Drones con cámara 4K, radios vintage con Bluetooth, carros parlante y lámparas LED de cristal.</p><a class="wa-link" data-msg="Hola, quiero ver opciones de regalos (drones, radios, lámparas)" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/hidrogel.jpg" alt="Lanzadores de hidrogel" loading="lazy"></div><div class="bd"><span class="tag">Diversión</span><h3>Lanzadores de hidrogel</h3><p>Juguetes recargables de bolitas de gel en varios diseños. ¡Los más pedidos!</p><a class="wa-link" data-msg="Hola, me interesan los lanzadores de hidrogel" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/cuidado-personal.jpg" alt="Planchas, secadores y máquinas de afeitar" loading="lazy"></div><div class="bd"><span class="tag">Cuidado personal</span><h3>Planchas, secadores y patilleras</h3><p>Remington, VGR, ProNova y más marcas para el cuidado del cabello y la barba.</p><a class="wa-link" data-msg="Hola, me interesan los productos de cuidado personal" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/ventilador.jpg" alt="Ventilador de pedestal" loading="lazy"></div><div class="bd"><span class="tag">Hogar</span><h3>Ventiladores</h3><p>De pedestal, de mesa y recargables. Frescura para la casa y el negocio.</p><a class="wa-link" data-msg="Hola, me interesa un ventilador" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+      <article class="pr reveal"><div class="ph"><img src="img/estanteria.jpg" alt="Teclados, audífonos y tecnología" loading="lazy"></div><div class="bd"><span class="tag">Tecnología</span><h3>Teclados, routers y más</h3><p>Teclados gamer, mouse, routers, cámaras de seguridad, audífonos de diadema y ofertas desde $20.000.</p><a class="wa-link" data-msg="Hola, quiero preguntar por accesorios de tecnología" href="#"><svg class="ico"><use href="#wa"/></svg>Preguntar precio</a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Videos</span>
+      <h2>Mira Tecno Center<br>por dentro</h2>
+      <p class="lead">Dale play: conoce el local y mira lo fácil que es llegar.</p>
+    </div>
+    <div class="vids reveal">
+      <div class="vd"><video src="img/recorrido.mp4" poster="img/recorrido-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Recorrido por el local</h3><p>Accesorios, tecnología y mucho más.</p></div></div>
+      <div class="vd"><video src="img/promo.mp4" poster="img/promo-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>¡Ven a Tecno Center!</h3><p>Calidad y buen servicio en Capilla.</p></div></div>
+      <div class="vd"><video src="img/ruta-1.mp4" poster="img/ruta-1-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Cómo llegar · Parte 1</h3><p>Sigue el recorrido por la calle hasta el local.</p></div></div>
+      <div class="vd"><video src="img/ruta-2.mp4" poster="img/ruta-2-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Cómo llegar · Parte 2</h3><p>Ya casi llegas: Calle 64 # 16‑42.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="local">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Nuestro local</span>
+      <h2>Ven y conócenos</h2>
+    </div>
+    <div class="gal reveal">
+      <figure class="w2 h2"><img src="img/calle.jpg" alt="Tecno Center desde la calle, barrio Capilla" loading="lazy"></figure>
+      <figure class="w2"><img src="img/interior.jpg" alt="Interior del local" loading="lazy"></figure>
+      <figure><img src="img/fachada.jpg" alt="Aviso de Tecno Center" loading="lazy"></figure>
+      <figure class="h2"><img src="img/aviso.jpg" alt="Aviso de servicios" loading="lazy"></figure>
+      <figure><img src="img/cargadores.jpg" alt="Vitrina de cargadores" loading="lazy"></figure>
+      <figure class="w2"><img src="img/vitrina.jpg" alt="Vitrina de productos" loading="lazy"></figure>
+      <figure class="w2"><img src="img/hidrogel.jpg" alt="Productos colgados en el local" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PAGOS -->
+<section id="pagos" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Medios de pago</span>
+      <h2>Paga como quieras</h2>
+    </div>
+    <div class="paygrid reveal">
+      <div class="paycard pc-online">
+        <span class="eyebrow">Pago en línea</span>
+        <h3>Paga desde tu celular</h3>
+        <p>Tarjeta débito o crédito, Nequi, PSE, botón Bancolombia y más. Pago seguro procesado por Wompi.</p>
+        <a class="btn btn-red pay-btn" href="https://checkout.wompi.co/l/VPOS_cH3u9L" target="_blank" rel="noopener">💳 Pagar ahora</a>
+        <div class="qrbox"><img src="img/qr-wompi.png" alt="Código QR para pagar en línea"><small>¿Estás en el computador? Escanea con la cámara de tu celular</small></div>
+      </div>
+      <div class="paycard pc-breb">
+        <span class="eyebrow">Bre‑B · Bancolombia</span>
+        <h3>Transfiere al instante</h3>
+        <p>Desde la app de tu banco: escanea el código o usa nuestra llave.</p>
+        <div class="key"><span>@tecnocenter</span><button type="button" id="copyKey">Copiar llave</button></div>
+        <div class="qrbox"><img src="img/qr-breb.png" alt="Código QR Bre-B de Tecno Center"><small>Escanéalo desde la app de tu banco</small></div>
+      </div>
+    </div>
+    <div class="pay-list reveal" style="margin-top:18px">
+      <div class="pm"><span class="em">💳</span>Tarjetas</div>
+      <div class="pm"><span class="em">📲</span>Nequi</div>
+      <div class="pm"><span class="em">📲</span>DaviPlata</div>
+      <div class="pm"><span class="em">🔳</span>QR interoperable</div>
+      <div class="pm"><span class="em">🔗</span>Link de pagos</div>
+      <div class="pm"><span class="em">💵</span>Efectivo</div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACION -->
+<section id="ubicacion">
+  <div class="wrap loc">
+    <div class="loc-card reveal">
+      <span class="eyebrow">Ubicación</span>
+      <h2>Estamos en Capilla</h2>
+      <div class="li"><div class="em">📍</div><div><b>Calle 64 # 16‑42</b><span>Barrio Capilla, Dosquebradas, Risaralda</span></div></div>
+      <div class="li"><div class="em" style="background:rgba(37,211,102,.14)">💬</div><div><b>WhatsApp 321 871 4191</b><span>Escríbenos para precios, créditos y servicio técnico</span></div></div>
+      <div style="display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem">
+        <a class="btn btn-red" href="https://www.google.com/maps/search/?api=1&query=Calle+64+%2316-42+Capilla+Dosquebradas+Risaralda" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center" href="#"><svg class="ico"><use href="#wa"/></svg>WhatsApp</a>
+      </div>
+    </div>
+    <img class="reveal" src="img/fachada-frontal.jpg" alt="Fachada de Tecno Center en Calle 64 # 16-42, Capilla" loading="lazy">
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band reveal">
+      <div>
+        <h2>¿Qué te quieres llevar hoy?</h2>
+        <p>Escríbenos y te decimos cómo sacarlo a crédito.</p>
+      </div>
+      <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center, quiero sacar algo a crédito" href="#" style="font-size:1.05rem;padding:1.1rem 1.6rem"><svg class="ico"><use href="#wa"/></svg>Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#inicio" class="logo"><div class="logo-mark">T<span>C</span></div><div><div class="logo-txt">Tecno <b>C</b>enter</div><span class="logo-sub">Servicio técnico · Ventas · Accesorios</span></div></a>
+    <div>Calle 64 # 16‑42, Capilla, Dosquebradas · WhatsApp 321 871 4191<br>© <span id="yr"></span> Tecno Center. Créditos sujetos a aprobación de cada entidad financiera.</div>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" data-msg="Hola Tecno Center, quiero información" href="#" aria-label="Escribir por WhatsApp"><svg><use href="#wa"/></svg></a>
+<div class="lb" id="lb"><img alt=""></div>
+
+<script>
+const WA='573218714191';
+const waUrl=m=>'https://wa.me/'+WA+'?text='+encodeURIComponent(m);
+document.querySelectorAll('.wa-link').forEach(a=>{a.href=waUrl(a.dataset.msg||'Hola Tecno Center');a.target='_blank';a.rel='noopener'});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+document.getElementById('credForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const n=document.getElementById('fn');
+  if(!v('fn')){n.focus();n.style.borderColor='#ef233c';return}
+  const msg=`Hola Tecno Center, quiero solicitar un crédito.\n\n• Nombre: ${v('fn')}\n• Municipio: ${v('fc')||'-'}\n• Producto: ${v('fp')}\n• Vivienda: ${v('fv')}\n• Reportado: ${v('fr')}${v('fd')?'\n• Detalles: '+v('fd'):''}`;
+  const a=document.createElement('a');a.href=waUrl(msg);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();
+});
+
+document.getElementById('copyKey').addEventListener('click',async e=>{
+  const b=e.currentTarget;
+  try{await navigator.clipboard.writeText('@tecnocenter');b.textContent='¡Copiada!'}catch(_){b.textContent='@tecnocenter'}
+  setTimeout(()=>b.textContent='Copiar llave',2000);
+});
+
+const lb=document.getElementById('lb');
+document.querySelectorAll('.gal figure').forEach(f=>f.addEventListener('click',()=>{lb.querySelector('img').src=f.querySelector('img').src;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
