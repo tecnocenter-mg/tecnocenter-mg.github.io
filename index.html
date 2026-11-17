@@ -831,7 +831,7 @@ async function ubicacion(){
 async function asesor(){await say('¡Claro! Te comunico con un asesor por WhatsApp 👇');chips([toWA(null,'Hola Tecno Center, quiero hablar con un asesor'),back])}
 
 async function catalogo(){
-  await say('📱 Tenemos iPhone 17 Pro Max, Galaxy S26 Ultra, S25 FE, A07, Redmi Note 15 Pro+, Redmi 15C, Infinix Note 50 Pro, Redmi A7 Pro, Galaxy Watch Ultra, Echo con Alexa, parlantes Bose, power banks, cabina karaoke Gedi, drones, cargadores y cables Fly y Plus ¡y mucho más!');
+  await say('📱 Tenemos iPhone 17 Pro Max, Galaxy S26 Ultra, S25 FE, A07, Redmi Note 15 Pro+, Redmi 15C, iPhone 16, Galaxy A57 y A37 5G, Infinix Note 50 Pro y Hot 70, Redmi Note 15 Pro, A7 Pro y A5, proyectores, Galaxy Watch Ultra, Echo con Alexa, parlantes Bose, power banks, cabina karaoke Gedi, drones, cargadores y cables Fly y Plus ¡y mucho más!');
   await say('Te llevo al catálogo: agrega lo que quieras y envíanos tu pedido por WhatsApp 🛒');
   chips([['🛒 Abrir catálogo',()=>{bot.classList.remove('open');document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})},true],back]);
 }
@@ -846,7 +846,7 @@ const rules=[
   [/d[oó]nde|direcci|ubica|llegar|horario|abren|cierran/i,ubicacion],
   [/asesor|humano|persona|llamar|whats/i,asesor],
   [/cargador|cable|aud[ií]fono|parlante|forro|vidrio|consola|dron|radio|reloj|ventilador|plancha|precio|cu[aá]nto|vale|tienen/i,productos],
-  [/iphone|samsung|galaxy|redmi|xiaomi|celular|tel[eé]fono|tablet|lenovo|cat[aá]logo|dron|cabina|karaoke|gedi|reloj|watch|alexa|echo|bose|infinix|power ?bank|aro|c[aá]mara/i,catalogo],
+  [/iphone|samsung|galaxy|redmi|xiaomi|celular|tel[eé]fono|tablet|lenovo|cat[aá]logo|dron|cabina|karaoke|gedi|reloj|watch|alexa|echo|bose|infinix|power ?bank|aro|c[aá]mara|proyector|hot ?70/i,catalogo],
   [/hola|buen(as|os)|saludo/i,menu],
 ];
 document.getElementById('botForm').addEventListener('submit',e=>{
@@ -867,6 +867,21 @@ setTimeout(()=>hint.classList.remove('show'),12000);
 
 /* ===== Catálogo ===== */
 const PRODUCTS=[
+ {id:'iphone16',n:'iPhone 16',c:'Celulares',img:'img/p/iphone16.jpg',d:'Más poder. Más batería. Más tú.',s:['Pantalla Super Retina XDR OLED 6.1"','Chip A18 · cámara 48MP','Face ID · IP68 · iOS 18'],t:['A crédito','Nuevo'],hero:1},
+ {id:'a57',n:'Samsung Galaxy A57 5G',c:'Celulares',img:'img/p/galaxy-a57.jpg',d:'¡Nuevo! Diseño delgado y batería de larga duración.',s:['5G','Colores claro y oscuro','Disponible a crédito'],t:['A crédito','Nuevo']},
+ {id:'a37',n:'Samsung Galaxy A37 5G',c:'Celulares',img:'img/p/galaxy-a37.jpg',d:'Conectividad 5G con triple cámara.',s:['5G','Triple cámara','Disponible a crédito'],t:['A crédito','Nuevo']},
+ {id:'note15pro',n:'Redmi Note 15 Pro',c:'Celulares',img:'img/p/redmi-note15pro.jpg',d:'Cámara de 200MP y gran batería.',s:['Pantalla AMOLED 6.77" FHD+','Cámara principal 200MP','Batería 6500mAh · IP65','Gorilla Glass Victus 2'],t:['A crédito','Nuevo']},
+ {id:'hot70',n:'Infinix Hot 70',c:'Celulares',img:'img/p/infinix-hot70.jpg',d:'Estilo que impacta, rendimiento que destaca.',s:['Batería 5600mAh','Colores lila, verde y negro','Amplio almacenamiento'],t:['A crédito','Nuevo']},
+ {id:'redmia5',n:'Redmi A5',c:'Celulares',img:'img/p/redmi-a5.jpg',d:'Económico y completo para el día a día.',s:['64GB · 6GB RAM','Cámara dual 32MP con IA'],t:['A crédito','Económico']},
+ {id:'lenovoe310',n:'Lenovo Tab + Folio Case + audífonos E310',c:'Tablets',img:'img/p/lenovo-e310.jpg',d:'Combo: tablet con estuche y audífonos inalámbricos de regalo.',s:['Incluye Folio Case','Incluye audífonos Lenovo E310'],t:['A crédito','Oferta']},
+ {id:'promax',n:'Proyector Max Juegos HCS350 Mini',c:'Gadgets',img:'img/p/proyector-max.jpg',d:'Proyector + consola: diversión sin límites en pantalla gigante.',s:['Soporte 4K · 450 lúmenes ANSI','Hasta 150" · WiFi 6 · Android','Incluye control de juego y control remoto'],t:['A crédito','Top'],hero:1},
+ {id:'hy300',n:'Proyector HY300 Ultra HD',c:'Gadgets',img:'img/p/proyector-hy300.jpg',d:'Pequeño tamaño, gran experiencia.',s:['1080P compatible 4K','Hasta 150" · WiFi 6 · Bluetooth 5.0','Android 11 · corrección trapezoidal automática'],t:['A crédito']},
+ {id:'astro',n:'Proyector de galaxia astronauta',c:'Gadgets',img:'img/p/proyector-astronauta.jpg',d:'Llena tu cuarto de estrellas. ¡Regalo ideal!',s:['Cabeza giratoria 360°','Luces de galaxia'],t:['Top']},
+ {id:'plusx30',n:'Cargador Plus X30 PD 30W tipo C',c:'Cargadores y cables',img:'img/p/plus-x30.jpg',d:'2 en 1: carga rápida y eficiente con cable incluido.',s:['30W Power Delivery','Puerto tipo C · cable incluido'],t:['Nuevo']},
+ {id:'plus3a',n:'Cargadores Plus 3.0A V8 / tipo C',c:'Cargadores y cables',img:'img/p/plus-cargadores3a.jpg',d:'Carga rápida siempre contigo. Cargador + cable USB.',s:['3.0A','Versiones V8 y tipo C'],t:['Económico']},
+ {id:'flyadapt',n:'Adaptadores Fly C-100 · C-120 · C-150',c:'Cargadores y cables',img:'img/p/fly-adaptadores.jpg',d:'Potencia, seguridad y rendimiento.',s:['1.5A · 2.4A · 2.1A'],t:['Económico']},
+ {id:'plusstereo',n:'Audífonos Plus Stereo Headset',c:'Audio',img:'img/p/plus-stereo.jpg',d:'Escucha cada detalle con micrófono integrado.',s:['Conexión 3.5mm','Micrófono integrado'],t:['Económico']},
+ {id:'flyh90',n:'Audífonos Fly H-90 de colores',c:'Audio',img:'img/p/fly-h90.jpg',d:'Siente tu música como nunca, en 8 colores.',s:['Control de volumen','Micrófono · 3.5mm','8 colores'],t:['Económico']},
  {id:'iphone17',n:'iPhone 17 Pro Max 256GB',c:'Celulares',img:'img/p/iphone17.jpg',d:'Colores azul, plata y naranja. ¡Elige tu color y llévalo hoy!',s:['256GB de almacenamiento','Colores: Azul · Plata · Naranja','Disponible a crédito'],t:['A crédito','Oferta'],hero:1},
  {id:'s26ultra',n:'Samsung Galaxy S26 Ultra',c:'Celulares',img:'img/p/s26ultra.jpg',d:'El poder de lo épico, con S Pen incluido y Galaxy AI.',s:['Pantalla 6.8" Dynamic AMOLED 2X 120Hz','Cámara 200MP + periscopio','Batería 5000mAh · carga 45W','256GB / 512GB · IP68'],t:['A crédito','Nuevo'],hero:1},
  {id:'redminote15',n:'Redmi Note 15 Pro+',c:'Celulares',img:'img/p/redminote15.jpg',d:'Diseño premium en tres colores: negro, azul y café.',s:['Tres colores disponibles','Pregunta por memoria y precio','Disponible a crédito'],t:['A crédito','Nuevo'],hero:1},
@@ -875,7 +890,7 @@ const PRODUCTS=[
  {id:'a07',n:'Samsung Galaxy A07 64GB',c:'Celulares',img:'img/p/a07.jpg',d:'Potencia para tu día con gran batería.',s:['Pantalla 6.7" 90Hz','Cámara 50MP','Batería 5000mAh · carga 25W','IP54 · lector de huella lateral'],t:['A crédito']},
  {id:'redmi15c',n:'Redmi 15C',c:'Celulares',img:'img/p/redmi15c.jpg',d:'Gran batería y gran pantalla a excelente precio.',s:['Pantalla 6.9" 120Hz','Batería 6000mAh','Carga rápida 33W'],t:['A crédito']},
  {id:'redmia7',n:'Redmi A7 Pro',c:'Celulares',img:'img/p/redmi-a7pro.jpg',d:'¡Nuevo! Gran pantalla y batería para todo el día.',s:['Pantalla 6.9"','Batería 6000mAh','128GB'],t:['A crédito','Nuevo']},
- {id:'infinix50',n:'Infinix Note 50 Pro',c:'Celulares',img:'img/p/infinix-note50.jpg',d:'Toma el control: AI Phone con pantalla de 144Hz.',s:['Pantalla 144Hz','NFC','Carga rápida All-Round FastCharge 3.0'],t:['A crédito','Nuevo']},
+ {id:'infinix50',n:'Infinix Note 50 Pro',c:'Celulares',img:'img/p/infinix-note50.jpg',d:'Toma el control: AI Phone con pantalla de 144Hz.',s:['Pantalla AMOLED curva 6.78" 144Hz','Helio G100 Ultimate · 256GB · 16GB RAM (8+8)','Batería 5200mAh · 90W + 30W inalámbrica','Cámara 50MP OIS · sonido JBL · NFC'],t:['A crédito','Nuevo']},
  {id:'watchultra',n:'Samsung Galaxy Watch Ultra',c:'Smart y hogar',img:'img/p/watch-ultra.jpg',d:'Diseñado para superar tus límites.',s:['Pantalla Super AMOLED 1.5" · cristal de zafiro','Caja de titanio · 10ATM','Hasta 100 h de batería · GPS doble frecuencia','Colores Titanium Silver y Gray'],t:['A crédito','Top'],hero:1},
  {id:'echospot',n:'Echo Spot con Alexa',c:'Smart y hogar',img:'img/p/echo-spot.jpg',d:'Despertador inteligente con pantalla y Alexa.',s:['Pantalla con hora y clima','Colores blanco y negro'],t:['Nuevo']},
  {id:'echodot',n:'Echo Dot con Alexa',c:'Smart y hogar',img:'img/p/echo-dot.jpg',d:'Parlante inteligente: música, alarmas y control por voz.',s:['Varios colores','Control por voz con Alexa'],t:[]},
