@@ -200,7 +200,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.82);backdrop-fi
 
 
 /* videos */
-.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vids{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1100px){.vids{grid-template-columns:repeat(3,1fr)}}
 .vd{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
 .vd video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
 .vd .bd{padding:14px 16px 16px}
@@ -460,7 +461,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
       <p class="lead">Calidad y buen servicio para tu celular, tu casa y tu día a día.</p>
     </div>
     <div class="svc reveal">
-      <div class="sv"><div class="em">🔧</div><h3>Servicio técnico</h3><p>Reparación de celulares Android y iPhone: pantallas, puertos de carga, baterías, software y más.</p></div>
+      <div class="sv"><div class="em">🔧</div><h3>Servicio técnico</h3><p>Reparación de celulares Android y iPhone: pantallas, puertos de carga, baterías, software y más. <a href="#videos" style="color:var(--cyan)">Ver reparación →</a></p></div>
       <div class="sv"><div class="em">🎧</div><h3>Accesorios</h3><p>Cargadores, cables, audífonos, forros, vidrios templados, relojes y parlantes.</p></div>
       <div class="sv"><div class="em">📶</div><h3>Recargas</h3><p>Recargas y paquetes para Claro, Tigo, Movistar, WOM y ETB.</p></div>
       <div class="sv"><div class="em">🎬</div><h3>Cuentas y suscripciones</h3><p>Películas, series, deportes, música, Canva, ChatGPT y más. <a href="#suscripciones" style="color:var(--cyan)">Ver todas →</a></p></div>
@@ -560,9 +561,10 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
     <div class="sec-head reveal">
       <span class="eyebrow">Videos</span>
       <h2>Mira Tecno Center<br>por dentro</h2>
-      <p class="lead">Dale play: conoce el local y mira lo fácil que es llegar.</p>
+      <p class="lead">Dale play: mira nuestro servicio técnico en acción, conoce el local y lo fácil que es llegar.</p>
     </div>
     <div class="vids reveal">
+      <div class="vd"><video src="img/reparacion-poco.mp4" poster="img/reparacion-poco-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>🛠️ Reparación Poco X3</h3><p>Condensador en corto y cambio de conector FPC. ¡Quedó funcionando! ✅</p></div></div>
       <div class="vd"><video src="img/recorrido.mp4" poster="img/recorrido-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Recorrido por el local</h3><p>Accesorios, tecnología y mucho más.</p></div></div>
       <div class="vd"><video src="img/promo.mp4" poster="img/promo-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>¡Ven a Tecno Center!</h3><p>Calidad y buen servicio en Capilla.</p></div></div>
       <div class="vd"><video src="img/ruta-1.mp4" poster="img/ruta-1-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Cómo llegar · Parte 1</h3><p>Sigue el recorrido por la calle hasta el local.</p></div></div>
