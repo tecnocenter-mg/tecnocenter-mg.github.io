@@ -225,6 +225,40 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
 .wa-float svg{width:32px;height:32px;color:#fff}
 @keyframes bob{50%{transform:translateY(-5px)}}
 
+
+/* bot */
+.wa-float{border:0;cursor:pointer}
+.bot-badge{position:absolute;top:-2px;right:-2px;background:var(--red);color:#fff;font-size:.72rem;font-weight:800;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--bg)}
+.bot-hint{position:fixed;right:90px;bottom:32px;z-index:60;background:#fff;color:#0b1230;font-weight:700;font-size:.88rem;padding:.55rem .9rem;border-radius:14px 14px 4px 14px;box-shadow:0 10px 30px -10px rgba(0,0,0,.6);opacity:0;transform:translateY(8px);transition:.4s;pointer-events:none}
+.bot-hint.show{opacity:1;transform:none}
+.bot{position:fixed;right:18px;bottom:92px;z-index:70;width:min(380px,calc(100vw - 24px));height:min(600px,calc(100vh - 120px));background:#0b1129;border:1px solid var(--line);border-radius:22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.85);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(16px) scale(.97);pointer-events:none;transition:.25s}
+.bot.open{opacity:1;transform:none;pointer-events:auto}
+.bot-head{display:flex;align-items:center;gap:.7rem;padding:14px 16px;background:linear-gradient(110deg,#075e54,#0b8a6b)}
+.bot-av{width:40px;height:40px;border-radius:50%;background:#fff;color:#0b1230;display:grid;place-items:center;font-family:"Archivo Black";font-size:.9rem}
+.bot-head b{display:block;font-size:.98rem}
+.bot-head small{font-size:.76rem;color:#d7fbe9;display:flex;align-items:center;gap:.35rem}
+.on{width:8px;height:8px;border-radius:50%;background:#7dffb3}
+.bot-x{margin-left:auto;background:rgba(255,255,255,.15);border:0;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:.9rem}
+.bot-body{flex:1;overflow-y:auto;padding:16px 14px;display:flex;flex-direction:column;gap:10px;background:#0b1129 radial-gradient(circle at 20% 0,rgba(30,123,255,.12),transparent 50%)}
+.msg{max-width:86%;padding:.65rem .85rem;border-radius:16px;font-size:.92rem;line-height:1.45;animation:pop .25s ease}
+.msg.b{background:#18234d;border-top-left-radius:4px;align-self:flex-start}
+.msg.u{background:#1e7bff;border-top-right-radius:4px;align-self:flex-end}
+.msg a{color:#7dd3fc;text-decoration:underline}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}}
+.typing{display:inline-flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#8fa0d8;animation:tp 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{50%{opacity:.3;transform:translateY(-3px)}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start;max-width:100%}
+.chip{background:transparent;border:1.5px solid #2c3d7a;color:#cfe0ff;border-radius:999px;padding:.45rem .8rem;font:600 .84rem Inter,sans-serif;cursor:pointer}
+.chip:hover{border-color:var(--blue);background:rgba(30,123,255,.12)}
+.chip.go{background:var(--wa);border-color:var(--wa);color:#05210f}
+.bot-in{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:#0d1430}
+.bot-in input{flex:1;background:#0a1029;border:1.5px solid var(--line);color:var(--txt);border-radius:999px;padding:.7rem 1rem;font:inherit;font-size:.92rem;outline:none}
+.bot-in input:focus{border-color:var(--blue)}
+.bot-in button{width:44px;border:0;border-radius:50%;background:var(--wa);color:#05210f;font-size:1.05rem;cursor:pointer}
+@media(max-width:520px){.bot{right:12px;bottom:86px}.bot-hint{right:86px}}
+
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
@@ -521,7 +555,20 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
   </div>
 </footer>
 
-<a class="wa-float wa-link" data-msg="Hola Tecno Center, quiero información" href="#" aria-label="Escribir por WhatsApp"><svg><use href="#wa"/></svg></a>
+<button class="wa-float" id="botOpen" aria-label="Abrir asistente de Tecno Center"><svg><use href="#wa"/></svg><span class="bot-badge">1</span></button>
+<div class="bot-hint" id="botHint">¿Te ayudo? 👋</div>
+<div class="bot" id="bot" role="dialog" aria-label="Asistente Tecno Center">
+  <div class="bot-head">
+    <div class="bot-av">TC</div>
+    <div><b>Asistente Tecno Center</b><small><span class="on"></span>En línea · responde al instante</small></div>
+    <button class="bot-x" id="botClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="bot-body" id="botBody"></div>
+  <form class="bot-in" id="botForm" autocomplete="off">
+    <input id="botTxt" placeholder="Escribe tu pregunta…" aria-label="Escribe tu mensaje">
+    <button aria-label="Enviar">➤</button>
+  </form>
+</div>
 <div class="lb" id="lb"><img alt=""></div>
 
 <script>
@@ -551,6 +598,122 @@ lb.addEventListener('click',()=>lb.classList.remove('on'));
 
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== Asistente ===== */
+(function(){
+const bot=document.getElementById('bot'),body=document.getElementById('botBody'),hint=document.getElementById('botHint'),badge=document.querySelector('.bot-badge');
+let started=false,lead={};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function scroll(){body.scrollTop=body.scrollHeight}
+async function say(html,wait=650){
+  const t=document.createElement('div');t.className='msg b';t.innerHTML='<span class="typing"><i></i><i></i><i></i></span>';body.appendChild(t);scroll();
+  await sleep(wait);t.innerHTML=html;scroll();
+}
+function me(text){const m=document.createElement('div');m.className='msg u';m.textContent=text;body.appendChild(m);scroll()}
+function chips(list){
+  body.querySelectorAll('.chips').forEach(c=>c.remove());
+  const w=document.createElement('div');w.className='chips';
+  list.forEach(([label,fn,go])=>{const b=document.createElement('button');b.className='chip'+(go?' go':'');b.type='button';b.textContent=label;
+    b.onclick=()=>{w.remove();if(!go)me(label);fn()};w.appendChild(b)});
+  body.appendChild(w);scroll();
+}
+function openWA(text){const a=document.createElement('a');a.href=waUrl(text);a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove()}
+const toWA=(label,text)=>[label||'💬 Continuar por WhatsApp',()=>{openWA(text);say('¡Listo! Te abrí WhatsApp con tu mensaje. Un asesor te responde enseguida 🙌',400).then(menuMini)},true];
+const back=['⬅️ Menú principal',menu];
+function menuMini(){chips([back])}
+
+async function menu(){
+  await say('¿En qué te puedo ayudar? Elige una opción 👇',450);
+  chips([['🛍️ Crédito',credito],['🔧 Servicio técnico',tecnico],['🎧 Productos y accesorios',productos],['📶 Recargas y cuentas',recargas],['💳 Formas de pago',pagos],['📍 Ubicación',ubicacion],['👤 Hablar con un asesor',asesor]]);
+}
+async function start(){
+  started=true;
+  await say('¡Hola! 👋 Bienvenido a <b>Tecno Center</b>, en Capilla, Dosquebradas.',500);
+  await say('Soy el asistente virtual. Te ayudo con créditos, servicio técnico, productos y pagos.',700);
+  menu();
+}
+/* Crédito */
+async function credito(){
+  lead={};
+  await say('¡Te ayudamos a estrenar! 🎉 Financiamos <b>celulares, motos, neveras, televisores, computadores, muebles, camas, herramientas, guadañas, materiales de construcción</b> y mucho más.');
+  await say('Aplica para <b>reportados</b>, <b>venezolanos con PPT</b>, propietarios y arrendatarios. Trabajamos con Sistecrédito, Addi, PayJoy, Brilla, Banco de Bogotá, Su+Pay, KrediYA y CHEC.',900);
+  await say('Hagamos tu pre-solicitud en 4 preguntas. ¿Qué quieres sacar a crédito?');
+  const ps=['📱 Celular','🏍️ Moto','🧊 Nevera / lavadora','📺 Televisor','💻 Computador','🛋️ Muebles / cama','🛠️ Herramientas / guadaña','🧱 Construcción','✨ Otro'];
+  chips([...ps.map(p=>[p,()=>{lead.producto=p.replace(/^\S+\s/,'');credVivienda()}]),back]);
+}
+async function credVivienda(){
+  await say('Perfecto 👌 ¿Tu vivienda es…?');
+  chips(['Propia','Arrendada','Familiar'].map(v=>[v,()=>{lead.vivienda=v;credReporte()}]));
+}
+async function credReporte(){
+  await say('¿Estás reportado en centrales de riesgo? Tranquilo, igual puedes aplicar 😉');
+  chips(['No','Sí','No sé'].map(v=>[v,()=>{lead.reportado=v;credNombre()}]));
+}
+async function credNombre(){
+  await say('Por último, ¿cuál es tu nombre? Escríbelo abajo ✍️');
+  awaiting=async name=>{lead.nombre=name;
+    await say(`Gracias, <b>${esc(name)}</b>. Este es tu resumen:<br>• Producto: ${lead.producto}<br>• Vivienda: ${lead.vivienda}<br>• Reportado: ${lead.reportado}`);
+    await say('Envíalo por WhatsApp y un asesor te dice qué financiera te aprueba y las cuotas 👇');
+    chips([toWA('✅ Enviar solicitud por WhatsApp',`Hola Tecno Center 👋 Quiero solicitar un crédito.\n\n• Nombre: ${name}\n• Producto: ${lead.producto}\n• Vivienda: ${lead.vivienda}\n• Reportado: ${lead.reportado}`),back]);
+  };
+}
+/* Otros */
+async function tecnico(){
+  await say('🔧 Reparamos celulares <b>Android y iPhone</b>: pantallas, puertos de carga, baterías, botones, software, desbloqueos y más.');
+  await say('¿Qué le pasa a tu equipo? Escríbelo abajo (marca, modelo y el daño) y te lo envío al técnico.');
+  awaiting=async t=>{await say('Entendido 👍 Envíalo por WhatsApp para que el técnico te dé precio y tiempo:');chips([toWA(null,`Hola Tecno Center, necesito servicio técnico: ${t}`),back])};
+}
+async function productos(){
+  await say('Tenemos de todo 😎: cargadores y cables, audífonos inalámbricos, forros, vidrios, relojes, parlantes Sonivox, consola M18 Pro, drones, radios retro, lámparas LED, ventiladores, planchas y secadores, lanzadores de hidrogel… ¡y ofertas desde $20.000!');
+  await say('¿Qué estás buscando? Escríbelo o elige:');
+  const ps=['Cargador / cable','Audífonos','Parlante','Consola','Forro / vidrio','Regalo'];
+  chips([...ps.map(p=>[p,()=>askWA(`Hola Tecno Center, quiero precio de: ${p}`)]),back]);
+  awaiting=t=>askWA(`Hola Tecno Center, quiero precio de: ${t}`);
+}
+async function askWA(text){await say('¡Buena elección! Te paso con un asesor para precio y disponibilidad 👇');chips([toWA(null,text),back])}
+async function recargas(){
+  await say('📶 Hacemos <b>recargas y paquetes</b> de Claro, Tigo, Movistar, WOM y ETB.');
+  await say('🎬 También vendemos <b>cuentas de entretenimiento</b> (películas, series y deportes) a buen precio.');
+  chips([toWA('💬 Pedir recarga o cuenta','Hola Tecno Center, quiero una recarga / cuenta de entretenimiento'),back]);
+}
+async function pagos(){
+  await say('💳 Recibimos <b>tarjetas, Nequi, DaviPlata, QR, efectivo</b> y link de pagos.');
+  await say('Para transferir por <b>Bre-B</b> usa la llave <b>@tecnocenter</b> desde la app de tu banco.');
+  chips([['💳 Pagar en línea ahora',()=>{const a=document.createElement('a');a.href='https://checkout.wompi.co/l/VPOS_cH3u9L';a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();say('Te abrí la página de pago segura ✅',300).then(menuMini)},true],['🏦 Somos corresponsal Bancolombia',async()=>{await say('Sí 🙌 Puedes hacer <b>retiros, depósitos y pagos de servicios</b> aquí en el local, sin ir al banco.');menuMini()}],back]);
+}
+async function ubicacion(){
+  await say('📍 Estamos en la <b>Calle 64 # 16-42, barrio Capilla, Dosquebradas</b> (Risaralda), al lado del corresponsal Bancolombia.');
+  chips([['🗺️ Abrir en Google Maps',()=>{const a=document.createElement('a');a.href='https://www.google.com/maps/search/?api=1&query=Calle+64+%2316-42+Capilla+Dosquebradas+Risaralda';a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();a.remove();menuMini()},true],toWA('🕒 Preguntar horario','Hola Tecno Center, ¿cuál es su horario de atención?'),back]);
+}
+async function asesor(){await say('¡Claro! Te comunico con un asesor por WhatsApp 👇');chips([toWA(null,'Hola Tecno Center, quiero hablar con un asesor'),back])}
+
+/* Texto libre */
+let awaiting=null;
+const rules=[
+  [/cr[eé]dit|financ|cuota|report|ppt|addi|sistecr|payjoy|brilla/i,credito],
+  [/repar|pantalla|t[eé]cnic|da[ñn]|bater|no (prende|carga)|desbloq|software/i,tecnico],
+  [/recarg|paquete|netflix|disney|prime|cuenta|plataforma|claro|tigo|movistar/i,recargas],
+  [/pag|nequi|daviplata|tarjeta|transfer|bre-?b|llave|qr/i,pagos],
+  [/d[oó]nde|direcci|ubica|llegar|horario|abren|cierran/i,ubicacion],
+  [/asesor|humano|persona|llamar|whats/i,asesor],
+  [/cargador|cable|aud[ií]fono|parlante|forro|vidrio|consola|dron|radio|reloj|ventilador|plancha|precio|cu[aá]nto|vale|tienen/i,productos],
+  [/hola|buen(as|os)|saludo/i,menu],
+];
+document.getElementById('botForm').addEventListener('submit',e=>{
+  e.preventDefault();const i=document.getElementById('botTxt');const t=i.value.trim();if(!t)return;i.value='';me(t);
+  body.querySelectorAll('.chips').forEach(c=>c.remove());
+  if(awaiting){const f=awaiting;awaiting=null;f(t);return}
+  const r=rules.find(([re])=>re.test(t));
+  if(r){r[1]()}else{say('Mmm, no estoy seguro de haber entendido 🤔 Te puedo pasar con un asesor o puedes elegir una opción.').then(()=>chips([toWA('💬 Preguntarle a un asesor',`Hola Tecno Center, tengo una pregunta: ${t}`),back]))}
+});
+/* Abrir / cerrar */
+function open(){bot.classList.add('open');hint.classList.remove('show');badge.style.display='none';if(!started)start();setTimeout(()=>document.getElementById('botTxt').focus({preventScroll:true}),300)}
+document.getElementById('botOpen').addEventListener('click',()=>bot.classList.contains('open')?bot.classList.remove('open'):open());
+document.getElementById('botClose').addEventListener('click',()=>bot.classList.remove('open'));
+setTimeout(()=>{if(!bot.classList.contains('open'))hint.classList.add('show')},4000);
+setTimeout(()=>hint.classList.remove('show'),12000);
+})();
 </script>
 </body>
 </html>
