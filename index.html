@@ -200,7 +200,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.82);backdrop-fi
 
 
 /* videos */
-.vids{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:auto}
 @media(max-width:1100px){.vids{grid-template-columns:repeat(3,1fr)}}
 .vd{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
 .vd video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
@@ -254,6 +254,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.82);backdrop-fi
 .li b{display:block;font-size:1.05rem}
 .li span{color:var(--mut);font-size:.92rem}
 .loc img{border-radius:24px;border:1px solid var(--line)}
+.loc-vid{text-align:center}
+.loc-vid video{width:100%;max-width:380px;aspect-ratio:9/16;margin:0 auto;border-radius:24px;border:1px solid var(--line);background:#000;object-fit:cover}
+.loc-vid p{color:var(--mut);font-size:.92rem;margin-top:.7rem}
 @media(max-width:900px){.loc{grid-template-columns:1fr}}
 
 /* cta band */
@@ -564,6 +567,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
       <p class="lead">Dale play: mira nuestro servicio técnico en acción, conoce el local y lo fácil que es llegar.</p>
     </div>
     <div class="vids reveal">
+      <div class="vd"><video src="img/como-llegar.mp4" poster="img/como-llegar-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>📍 Cómo llegar paso a paso</h3><p>Por la Av. Simón Bolívar (Cra 16), giras a la derecha en la Calle 64 y a unos 5 locales nos encuentras.</p></div></div>
       <div class="vd"><video src="img/reparacion-poco.mp4" poster="img/reparacion-poco-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>🛠️ Reparación Poco X3</h3><p>Condensador en corto y cambio de conector FPC. ¡Quedó funcionando! ✅</p></div></div>
       <div class="vd"><video src="img/recorrido.mp4" poster="img/recorrido-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Recorrido por el local</h3><p>Accesorios, tecnología y mucho más.</p></div></div>
       <div class="vd"><video src="img/promo.mp4" poster="img/promo-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>¡Ven a Tecno Center!</h3><p>Calidad y buen servicio en Capilla.</p></div></div>
@@ -639,7 +643,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
         <a class="btn btn-wa wa-link" data-msg="Hola Tecno Center" href="#"><svg class="ico"><use href="#wa"/></svg>WhatsApp</a>
       </div>
     </div>
-    <img class="reveal" src="img/fachada-frontal.jpg" alt="Fachada de Tecno Center en Calle 64 # 16-42, Capilla" loading="lazy">
+    <div class="loc-vid reveal"><video src="img/como-llegar.mp4" poster="img/como-llegar-poster.jpg" controls playsinline preload="metadata" aria-label="Video: cómo llegar a Tecno Center"></video><p>🎬 Mira el video: te mostramos el camino paso a paso.</p></div>
   </div>
 </section>
 
