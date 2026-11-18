@@ -205,6 +205,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,11,26,.82);backdrop-fi
 .vd{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
 .vd video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
 .vd .bd{padding:14px 16px 16px}
+.vd.feat{grid-column:1/-1;width:100%;max-width:380px;margin:0 auto 8px;border-color:var(--red)}
 .vd h3{font-family:Inter;font-weight:800;font-size:1rem}
 .vd p{color:var(--mut);font-size:.85rem;margin-top:.2rem}
 @media(max-width:900px){.vids{grid-template-columns:1fr 1fr}}
@@ -567,6 +568,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--mut);fo
       <p class="lead">Dale play: mira nuestro servicio técnico en acción, conoce el local y lo fácil que es llegar.</p>
     </div>
     <div class="vids reveal">
+      <div class="vd feat"><video src="img/tecnocenter-todos.mp4" poster="img/tecnocenter-todos-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>🎬 Todo Tecno Center en un solo video</h3><p>El local, nuestros productos, el servicio técnico y cómo llegar.</p></div></div>
       <div class="vd"><video src="img/como-llegar.mp4" poster="img/como-llegar-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>📍 Cómo llegar paso a paso</h3><p>Por la Av. Simón Bolívar (Cra 16), giras a la derecha en la Calle 64 y a unos 5 locales nos encuentras.</p></div></div>
       <div class="vd"><video src="img/reparacion-poco.mp4" poster="img/reparacion-poco-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>🛠️ Reparación Poco X3</h3><p>Condensador en corto y cambio de conector FPC. ¡Quedó funcionando! ✅</p></div></div>
       <div class="vd"><video src="img/recorrido.mp4" poster="img/recorrido-poster.jpg" controls playsinline preload="none"></video><div class="bd"><h3>Recorrido por el local</h3><p>Accesorios, tecnología y mucho más.</p></div></div>
